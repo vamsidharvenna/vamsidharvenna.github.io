@@ -17,8 +17,8 @@ export interface SocialLink {
 
 export interface Skill {
   name: string;
-  level: number; // 1-100
   category: string;
+  level: number; // 0-100 proficiency indicator
 }
 
 export interface Project {
@@ -70,11 +70,11 @@ export interface PortfolioConfig {
 export const portfolioConfig: PortfolioConfig = {
   personalInfo: {
     name: "Venna Vamsidhar Reddy",
-    title: "Conversational AI Engineer • Data Engineer • Prompt Engineering",
+    title: "Conversational AI Developer | Gen AI Engineer | Prompt Engineer",
     location: "Edmond, Oklahoma, US",
-    email: "venna@example.com",
-    phone: "+1 (555) 123-4567",
-    bio: "hiii ipsum dolor sit  primis augue nibh cgh malesuada. Morbi massa. Donec nec sapien vestibulumltrices eros pretium non. Mauris vel scelerisque lacus. Cras at semper arcu. Cras sed varius sapien. Fusce facilisis enim ut leo efficitur fringilla. Etiam interdum nulla in ex ultrices tincidunt. Quisque eget congue ante, ac maximus quam. Nunc faucibus nunc ipsum, sit amet mollis odio malesuada sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc at felis elit. Fusce ut urna ac ex dignissim fringilla quis a odio. In hac habitasse platea dictumst. Ut sollicitudin malesuada consectetur. Ut volutpat pulvinar quam, a eleifend mauris aliquam nec. Maecenas non condimentum sem, eget viverra metus. Ut et turpis eget eros bibendum lacinia sed in orci.Integer augue est, cursus vel enim eget, ultrices bibendum lectus. Nunc fermentum massa in maximus rutrum. Mauris felis lorem, ultricies ac varius in, consectetur eget metus. In pretium tempor justo eget tempus. Inetus, non dapibus purus varius qu",
+    email: "vennavamsidharreddy@gmail.com",
+    phone: "+1 (405)-861-6529",
+    bio:"I’m a Conversational AI Developer focused on creating intelligent virtual assistants that think, learn, and engage like humans. My work blends Gen AI, NLP, and automation to design conversational experiences that simplify customer interactions across web, mobile, and voice channels. I specialize in Dialogflow CX, Kore.ai XO11, IBM Watson Assistant, and Vertex AI, using prompt engineering, Playbooks, and contextual logic to build adaptive, human-centric chat and voice bots. At Verizon, I design Agentic AI-driven assistants that improve accuracy, personalization, and automation, reducing fallback rates and enhancing self-service resolution. Earlier, at Vitech Systems Group, I built Kore.ai chatbots for U.S. pension systems, integrating APIs, SQL databases, and real-time data pipelines to streamline policy inquiries and automate workflows. Skilled in GCP, BigQuery, Cloud Functions, Firestore, and REST APIs, I combine AI development expertise with strong problem-solving and system design abilities to bridge the gap between technology and user experience while delivering scalable, intuitive, and impactful conversational solutions.",
     avatar: "/assets/images/avatar.jpg",
   },
 
@@ -86,7 +86,7 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/venna-reddy",
+      url: "https://www.linkedin.com/in/vamsidharreddyvenna/",
       icon: "linkedin",
     },
     {
@@ -96,52 +96,42 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       platform: "Email",
-      url: "mailto:venna@example.com",
+      url: "mailto:vennavamsidharreddy@gmail.com",
       icon: "mail",
     },
   ],
 
   skills: [
-    // Conversational AI
-    { name: "Dialogflow CX", level: 95, category: "Conversational AI" },
-    { name: "Kore.ai", level: 90, category: "Conversational AI" },
-    {
-      name: "Natural Language Processing",
-      level: 90,
-      category: "Conversational AI",
-    },
-    { name: "Intent Recognition", level: 85, category: "Conversational AI" },
-    { name: "Entity Extraction", level: 85, category: "Conversational AI" },
-    { name: "Conversation Design", level: 90, category: "Conversational AI" },
-    { name: "Voice User Interface", level: 80, category: "Conversational AI" },
+   // Conversational AI
+  { name: "Dialogflow CX", category: "Conversational AI", level: 92 },
+  { name: "Kore.ai XO11", category: "Conversational AI", level: 88 },
+  { name: "IBM Watson Assistant", category: "Conversational AI", level: 80 },
+  { name: "Intent Recognition & NLP Training", category: "Conversational AI", level: 90 },
+  { name: "Entity Extraction", category: "Conversational AI", level: 88 },
+  { name: "Playbooks & Agent Flows", category: "Conversational AI", level: 85 },
+  { name: "Omnichannel Voice & Chat Design", category: "Conversational AI", level: 84 },
 
-    // AI & ML
-    { name: "Large Language Models", level: 90, category: "AI & ML" },
-    { name: "Prompt Engineering", level: 95, category: "AI & ML" },
-    {
-      name: "RAG (Retrieval Augmented Generation)",
-      level: 90,
-      category: "AI & ML",
-    },
-    { name: "OpenAI GPT", level: 85, category: "AI & ML" },
-    { name: "Langchain", level: 80, category: "AI & ML" },
-    { name: "Vector Databases", level: 75, category: "AI & ML" },
+  // AI & LLMs
+  { name: "Prompt Engineering", category: "AI & LLMs", level: 92 },
+  { name: "Large Language Models (Gemini, GPT-4o, Azure OpenAI)", category: "AI & LLMs", level: 88 },
+  { name: "Agentic AI Design", category: "AI & LLMs", level: 86 },
+  { name: "Multi-Intent Detection", category: "AI & LLMs", level: 85 },
+  { name: "Context Handling & Dialogue Generation", category: "AI & LLMs", level: 87 },
 
-    // Data Engineering
-    { name: "Python", level: 90, category: "Data Engineering" },
-    { name: "Apache Spark", level: 80, category: "Data Engineering" },
-    { name: "ETL Pipelines", level: 85, category: "Data Engineering" },
-    { name: "SQL", level: 90, category: "Data Engineering" },
-    { name: "NoSQL", level: 80, category: "Data Engineering" },
-    { name: "Data Warehousing", level: 75, category: "Data Engineering" },
+  // Cloud & Automation
+  { name: "Google Cloud Platform (GCP)", category: "Cloud & Automation", level: 85 },
+  { name: "Vertex AI & CCAI", category: "Cloud & Automation", level: 84 },
+  { name: "Cloud Functions & Firestore", category: "Cloud & Automation", level: 82 },
+  { name: "REST APIs & Webhooks", category: "Cloud & Automation", level: 86 },
+  { name: "API Integration & Automation", category: "Cloud & Automation", level: 86 },
+  { name: "Git & GitHub", category: "Cloud & Automation", level: 90 },
 
-    // Cloud & Tools
-    { name: "Google Cloud Platform", level: 85, category: "Cloud & Tools" },
-    { name: "AWS", level: 80, category: "Cloud & Tools" },
-    { name: "Docker", level: 75, category: "Cloud & Tools" },
-    { name: "Git", level: 90, category: "Cloud & Tools" },
-    { name: "REST APIs", level: 85, category: "Cloud & Tools" },
-    { name: "Webhook Integration", level: 80, category: "Cloud & Tools" },
+  // Programming & Data
+  { name: "Python", category: "Programming & Data", level: 88 },
+  { name: "SQL", category: "Programming & Data", level: 86 },
+  { name: "Node.js", category: "Programming & Data", level: 80 },
+  { name: "JavaScript", category: "Programming & Data", level: 88 },
+  { name: "Shell Scripting", category: "Programming & Data", level: 78 },
   ],
 
   projects: [
@@ -216,102 +206,101 @@ export const portfolioConfig: PortfolioConfig = {
   experience: [
     {
       id: "senior-ai-engineer",
-      company: "ConversAI Solutions",
-      position: "Senior Conversational AI Engineer",
-      startDate: "2022-08",
+      company: "Verizon",
+      position: "CCAI Dialogflow Developer(Agentic AI)",
+      startDate: "2023-01",
       endDate: null,
       description:
-        "Leading development of enterprise conversational AI solutions and mentoring team on best practices",
+        "Developed enterprise-grade conversational AI systems for Verizon using Dialogflow CX, Playbooks, and agentic AI techniques to deliver intelligent, scalable customer experiences.",
       responsibilities: [
-        "Architected and deployed 15+ enterprise chatbots using Dialogflow CX and Kore.ai",
-        "Implemented RAG systems that improved response accuracy by 45% for domain-specific queries",
-        "Led prompt engineering initiatives resulting in 60% reduction in hallucinations",
-        "Established CI/CD pipelines for conversational AI deployment reducing time-to-market by 40%",
-        "Mentored junior developers and conducted technical workshops on NLU best practices",
+        "Designed and optimized Verizon Assistant in Dialogflow CX using Conversational Agents, Chat with data stores, and Playbooks with prompt engineering, conditional logic, and Python scripting, creating adaptive virtual agents aligned with Agentic AI principles that improved contextual accuracy, increased self-service resolution by 20%, and reduced fallback rates by 25%.", 
+        "Implemented omnichannel conversational flows in Dialogflow CX, building both chat agents and voice agents with Speech-toText, Text-to-Speech, and SSML to ensure natural, consistent user experiences across web, mobile, and IVR channels.", 
+        "Trained NLP models in Dialogflow CX—including intents, entities, and multi-turn conversational flows with advanced context handling—leveraging Vertex AI features to enhance training and improve overall model performance.",
+        "Integrated Dialogflow CX and Playbooks with back-end APIs and external systems, using webhooks, Playbook tools, Google Cloud Functions, Firestore, and Cloud SQL for fulfillment to enable real-time data retrieval and automate customer workflows.",
+        "Partnered with cross-functional teams to define business requirements and deliver scalable Google CCAI solutions, while continuously refining NLU models and conversational flows using analytics, logs, and customer feedback to drive higher accuracy, responsiveness, and user experience.",
       ],
       technologies: [
         "Dialogflow CX",
-        "Kore.ai",
-        "LangChain",
-        "OpenAI GPT",
-        "Python",
+        "Playbooks",
+        "Vertex AI",
+        "Prompt engineering",
+        "Google CCAI",
         "GCP",
+        "NLP", 
       ],
-      location: "Edmond, Oklahoma, US",
+      location: "New Jersey, USA",
     },
     {
       id: "data-ai-engineer",
-      company: "DataFlow Technologies",
-      position: "Data Engineer & AI Specialist",
-      startDate: "2020-09",
-      endDate: "2022-07",
+      company: "Vitech Systems Group ",
+      position: "Chatbot Developer (Kore.ai)",
+      startDate: "2020-06",
+      endDate: "2021-12",
       description:
-        "Built data pipelines and integrated AI capabilities for business intelligence",
+        "Built AI-powered chatbot solutions and data integrations for US pension systems using Kore.ai, SQL, and custom APIs to automate workflows and enhance service efficiency.",
       responsibilities: [
-        "Developed ETL pipelines processing 10TB+ daily data using Apache Spark and Python",
-        "Integrated conversational interfaces with data warehouses for natural language querying",
-        "Implemented vector databases for semantic search across enterprise knowledge bases",
-        "Collaborated with ML teams to deploy LLM-based features in production",
-        "Optimized data processing workflows reducing computation costs by 35%",
+        "Developed a Kore.ai chatbot for US pension providers, automating routine data retrieval, compliance checks, and policy inquiries, reducing manual effort by 40% and improving workflow efficiency.",
+        "Built end-to-end Dialog Tasks in Kore.ai, implementing custom business logic, workflow automation, multi-intent detection, multi-turn conversational design, and entity amendment to support dynamic and adaptive user interactions.",
+        "Trained NLP models in Kore.ai by building intents, entities, and bot synonyms, and validated performance through utterance testing, sentiment management, and batch testing, achieving 92% intent recognition accuracy and minimizing fallback responses.",
+        "Engineered custom API endpoints for pension record retrieval, benefit calculations, and contribution tracking, enabling seamless data exchange between the chatbot and internal pension systems, reducing manual intervention by 30%.",
+        "Architected a middle layer to integrate the chatbot with Teradata and SQL databases using Node.js and Python, enabling real-time pension data access, automated reporting, and self-service tools that improved case resolution by 35%.",  
       ],
       technologies: [
-        "Apache Spark",
-        "Python",
-        "SQL",
-        "Vector Databases",
         "NLP",
-        "AWS",
+        "Kore.ai",
+        "SQL",
+        "Dialog Tasks",
+        "Node.js",
+        "Python",
       ],
-      location: "Remote",
+      location: "Hyderbad, India",
     },
     {
       id: "conversation-designer",
-      company: "ChatBot Innovations",
-      position: "Conversation Designer",
-      startDate: "2019-06",
-      endDate: "2020-08",
+      company: "Vitech Systems Group ",
+      position: "Associate Data Engineer Intern",
+      startDate: "2020-01",
+      endDate: "2020-05",
       description:
-        "Designed conversational flows and implemented chatbot solutions for various industries",
+        "Assisted in integrating multi-source pension data through ETL pipelines, optimized SQL performance, and strengthened data quality for reliable client reporting.",
       responsibilities: [
-        "Designed conversation flows for 20+ chatbots across retail, healthcare, and finance",
-        "Implemented NLU models with 90%+ intent recognition accuracy",
-        "Conducted user testing and A/B testing to optimize conversation experiences",
-        "Integrated chatbots with CRM systems and third-party APIs",
-        "Created documentation and training materials for conversation design best practices",
+        "Assisted in building ETL pipelines to integrate data from 12+ legacy systems into Teradata, improving data accessibility and reporting accuracy for 15 U.S. pension clients managing $2B+ in assets.",
+        "Developed and optimized SQL queries to analyze large datasets (up to 1TB), improving query performance by 30% and accelerating data retrieval for pension management insights.",
+        "Worked closely with data scientists and analysts to define data requirements, validate ETL processes, and ensure SOC2-compliant data quality, enhancing data reliability for client reporting.",
       ],
       technologies: [
-        "Dialogflow",
-        "NLU",
-        "Conversation Design",
-        "APIs",
+        "Teradata",
+        "Sql",
+        "ETL pipelines",
+        "Teradta warehouse",
         "Analytics",
       ],
-      location: "Oklahoma City, OK",
+      location: "Hyderbad, India",
     },
   ],
 
   education: [
     {
       id: "cs-degree",
-      institution: "University of Central Oklahoma",
-      degree: "Master of Science",
-      field: "Computer Science - AI/ML Focus",
-      startDate: "2017-08",
-      endDate: "2019-05",
-      gpa: "3.9",
+      institution: "Cleveland State Universtity",
+      degree: "Master of Information Systems",
+      field: "Information Science",
+      startDate: "2022-01",
+      endDate: "2023-05",
+      gpa: "3.6",
       description:
-        "Specialized in Artificial Intelligence and Machine Learning with focus on Natural Language Processing. Thesis on 'Improving Intent Recognition in Conversational Systems using Deep Learning'.",
+        "Built advanced expertise in enterprise systems, data management, and emerging technologies, with hands-on experience in project management and network security. Worked on academic projects and system design tasks, strengthening analytical and technical implementation skills.",
     },
     {
       id: "engineering-degree",
-      institution: "Jawaharlal Nehru Technological University",
+      institution: "Vellore Institute of Technology",
       degree: "Bachelor of Technology",
-      field: "Computer Science and Engineering",
-      startDate: "2013-08",
-      endDate: "2017-05",
-      gpa: "3.7",
+      field: "Information Technology",
+      startDate: "2016-06",
+      endDate: "2020-06",
+      gpa: "3.2",
       description:
-        "Comprehensive computer science foundation with projects in software engineering, algorithms, and database systems. Active member of AI/ML club and hackathon participant.",
+        "Comprehensive foundation in information technology, software engineering, and database systems. Completed academic projects focused on web development, system design, and networking concepts.",
     },
   ],
 

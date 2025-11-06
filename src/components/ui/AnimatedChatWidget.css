@@ -8,6 +8,44 @@ df-messenger {
   z-index: 998 !important;
 }
 
+/* Verizon-inspired theme overrides for Dialogflow messenger (best-effort) */
+df-messenger {
+  --df-messenger-primary-color: #e60000; /* Verizon red */
+  --df-messenger-titlebar-color: #0b0b0c;
+  --df-messenger-titlebar-font-color: #ffffff;
+  --df-messenger-font-color: #e5e7eb;
+  --df-messenger-chat-border-radius: 22px;
+  --df-messenger-chat-width: 380px;
+  --df-messenger-chat-height: 520px;
+  --df-messenger-chat-background: #050505;
+  --df-messenger-chat-border: 1px solid #1f2024;
+  --df-messenger-chat-messagelist-border: 1px solid #1f2024;
+  --df-messenger-chat-padding: 18px;
+  --df-messenger-chat-overflow: auto;
+  --df-messenger-message-spacing: 14px;
+  --df-messenger-message-border-radius: 18px;
+  --df-messenger-message-group-border-radius: 0;
+  --df-messenger-message-actor-spacing: 12px;
+  --df-messenger-message-bot-group-background: transparent;
+  --df-messenger-message-bot-background: #1c1d23;
+  --df-messenger-message-bot-font-color: #e8eaee;
+  --df-messenger-message-user-group-background: transparent;
+  --df-messenger-message-user-background: #e60000;
+  --df-messenger-message-user-font-color: #ffffff;
+  --df-messenger-chip-border-radius: 999px;
+  --df-messenger-chip-border-color: #2d2e35;
+  --df-messenger-chip-background: #131418;
+  --df-messenger-chip-font-color: #e5e7eb;
+  --df-messenger-input-background: #101115;
+  --df-messenger-input-font-color: #f3f4f6;
+  --df-messenger-input-placeholder-color: #9ca3af;
+  --df-messenger-send-icon: #f3f4f6;
+  --df-messenger-button-icon-color: #f3f4f6;
+  --df-messenger-suggestion-chip-background: #131418;
+  --df-messenger-suggestion-chip-border-color: #2d2e35;
+  --df-messenger-suggestion-chip-font-color: #e5e7eb;
+}
+
 /* Custom chat icon in slot */
 .custom-chat-icon {
   position: relative;
@@ -353,3 +391,168 @@ df-messenger {
   transform: scale(0.9);
   opacity: 1;
 }
+
+/* Hide the older inline-styled panel in favor of Verizon-styled one */
+.lc-panel { display: none !important; }
+
+/* Verizon-styled live chat panel */
+.vz-dark {
+  --vz-red: #e60000;
+  --vz-black: #0b0b0c;
+  --vz-text: #e5e7eb;
+  --vz-muted: #9ca3af;
+  --vz-border: #26272b;
+  --vz-bg: #0b0b0c;
+  --vz-surface: #111214;
+  --vz-bubble: #1a1b1f;
+}
+
+.vz-chat-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  width: 380px;
+  height: 520px;
+  background: var(--vz-surface, var(--vz-bg));
+  border: 1px solid var(--vz-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji';
+}
+
+.vz-chat-header {
+  background: var(--vz-black);
+  color: #fff;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px 16px 0 0;
+}
+
+.vz-brand { display: flex; align-items: center; gap: 10px; }
+.vz-brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--vz-red); display: inline-block; }
+.vz-brand-text { font-weight: 700; letter-spacing: 0.2px; }
+
+.vz-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.vz-chat-body {
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+  background: var(--vz-surface, var(--vz-bg));
+}
+
+.vz-msg { margin: 10px 0; display: flex; }
+.vz-msg--mine { justify-content: flex-end; }
+.vz-msg--agent { justify-content: flex-start; }
+.vz-bubble {
+  background: var(--vz-bubble);
+  color: var(--vz-text);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--vz-border);
+  max-width: 80%;
+  position: relative;
+}
+.vz-msg--agent .vz-bubble,
+.vz-msg--mine .vz-bubble {
+  border-radius: 8px;
+}
+.vz-bubble--mine {
+  background: var(--vz-red);
+  color: #fff;
+  border-color: var(--vz-red);
+}
+.vz-meta { font-size: 11px; color: var(--vz-muted); margin-bottom: 4px; font-weight: 600; }
+.vz-text { font-size: 14px; line-height: 1.35; }
+
+.vz-chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid var(--vz-border);
+  background: var(--vz-surface, #fff);
+  border-radius: 0 0 16px 16px;
+}
+.vz-chat-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--vz-border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--vz-bg);
+  color: var(--vz-text);
+}
+.vz-chat-input input::placeholder { color: var(--vz-muted); }
+.vz-send {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--vz-red);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.vz-send:hover { background: #cc0000; }
+
+/* Suggestions chips */
+.vz-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px 0 12px;
+  border-top: 1px dashed var(--vz-border);
+}
+.vz-chip {
+  padding: 6px 10px;
+  border: 1px solid var(--vz-border);
+  border-radius: 999px;
+  background: var(--vz-surface, #fff);
+  color: var(--vz-text);
+  font-size: 12px;
+  cursor: pointer;
+}
+.vz-chip:hover { border-color: var(--vz-red); color: var(--vz-red); }
+
+/* Typing indicator */
+.vz-typing { display: flex; gap: 4px; padding: 10px 2px; }
+.vz-typing-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--vz-muted);
+  animation: vz-bounce 1.2s infinite ease-in-out;
+}
+.vz-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.vz-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes vz-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.6; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Launcher button */
+.vz-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--vz-red);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(230,0,0,0.35);
+}
+.vz-launcher:hover { background: #cc0000; }
+
+/* Dialogflow dark variables (best-effort) */

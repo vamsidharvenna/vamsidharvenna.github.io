@@ -7,58 +7,85 @@ const Certifications: React.FC = () =>
     const certifications = [
         {
             id: 1,
-            name: "Google Cloud Professional Cloud Architect",
+            name: "Google Prompting Essentials Specialization",
             issuer: "Google Cloud",
-            date: "2023",
-            credentialId: "GCP-PCA-2023-001",
-            description: "Advanced cloud architecture and enterprise solutions design",
-            category: "Cloud Architecture"
+            date: "2025",
+            credentialId: "D19M1E16N5C5",
+            URL: "https://coursera.org/verify/specialization/D19M1E16N5C5",
+            description: "Earned Google’s Prompting Essentials certification, strengthening skills in advanced prompting techniques, multimodal prompting, and reusable prompt design.",
+            category: "Prompt Engineering"
         },
         {
             id: 2,
-            name: "Dialogflow CX Advanced Certification",
-            issuer: "Google Cloud",
-            date: "2023",
-            credentialId: "DFCX-ADV-2023-002",
-            description: "Expert-level conversational AI development with Dialogflow CX",
-            category: "Conversational AI"
+            name: "Prompt Engineering",
+            issuer: "Vanderbilt University",
+            date: "2025",
+            credentialId: "WII8WVHJMZNM",
+            URL: "https://www.coursera.org/account/accomplishments/specialization/WII8WVHJMZNM",
+            description: "Completed Vanderbilt Prompt Engineering Specialization covering reusable prompt design, LLM-based analysis, and responsible generative AI.",
+            category: "Prompt Engineering"
         },
         {
             id: 3,
-            name: "Kore.ai Platform Certification",
-            issuer: "Kore.ai",
-            date: "2022",
-            credentialId: "KORE-CERT-2022-003",
-            description: "Enterprise bot development and deployment on Kore.ai platform",
-            category: "Conversational AI"
+            name: "Advanced Prompt Engineering ",
+            issuer: "Simplilearn",
+            date: "2025",
+            credentialId: "ZUQGF0VUXXID",
+            URL: "https://coursera.org/verify/ZUQGF0VUXXID",
+            description: "Earned Advanced Prompt Engineering certification focused on structured reasoning, prompt optimization, LangChain workflows, and RAG-based data generation.",
+            category: "Prompt Engineering"
         },
         {
             id: 4,
-            name: "AWS Solutions Architect Associate",
-            issuer: "Amazon Web Services",
-            date: "2022",
-            credentialId: "AWS-SAA-2022-004",
-            description: "Cloud solutions architecture and AWS services expertise",
-            category: "Cloud Architecture"
+            name: "Automation AI Basic Training by Kore.ai",
+            issuer: "Kore.ai",
+            date: "2025",
+            credentialId: "XO 11",
+            URL:"https://academy.kore.ai/",
+            description: "Completed Kore.ai Automation AI Basic Training with hands-on skills in agent nodes, automation flows, LLM integrations, and building intelligent virtual assistants.",
+            category: "Conversational AI"
         },
         {
             id: 5,
-            name: "Apache Spark Developer Certification",
-            issuer: "Databricks",
-            date: "2021",
-            credentialId: "SPARK-DEV-2021-005",
-            description: "Big data processing and analytics with Apache Spark",
-            category: "Data Engineering"
+            name: "Automation AI Advanced Training by Kore.ai!",
+            issuer: "Kore.ai",
+            date: "2025",
+            credentialId: "XO 11",
+            URL:"https://academy.kore.ai/",
+            description: "Certified in Kore.ai Automation AI Advanced Training with hands-on expertise in advanced conversational flows, multilingual enablement, analytics, and secure LLM-powered automation.",
+            category: "Conversational AI"
         },
         {
             id: 6,
-            name: "OpenAI GPT Fine-tuning Specialist",
-            issuer: "OpenAI",
+            name: "Building a Virtual Agent with Dialogflow CX",
+            issuer: "Google",
+            date: "2022",
+            credentialId: "1124",
+            URL:"https://www.cloudskillsboost.google/course_templates/1124/badge",
+            description: "Learned core Dialogflow CX design principles, building virtual agents with intents, entities, flows, and webhook integrations.",
+            category: "Conversational AI"
+        },
+        {
+            id: 7,
+            name: "Kore.ai Experience Optimization Platform Developers Basic Training",
+            issuer: "Kore.ai",
             date: "2023",
-            credentialId: "OPENAI-FT-2023-006",
-            description: "Large language model fine-tuning and prompt engineering",
-            category: "AI/ML"
+            credentialId: "Xo 8",
+            URL:"https://academy.kore.ai/",
+            description: "Completed Kore.ai XO basic training covering virtual assistant development, NLP configuration, and platform workflow fundamentals.",
+            category: "Conversational AI"
+        },
+        {
+            id: 8,
+            name: " Google Cloud Professional Data Engineer",
+            issuer: "Google",
+            date: "2024",
+            credentialId: "dcc086514fa54a8f842bfad4a2a20280",
+            URL:"https://www.credly.com/badges/fbc717f1-859f-4610-99e9-a52410916466/public_url",
+            description: "Certified in designing, building, and operationalizing secure, scalable data pipelines on Google Cloud for analytics and machine learning.",
+            category: "Data Engineering"
         }
+
     ];
 
     const categorizedCerts = certifications.reduce( ( acc, cert ) =>
