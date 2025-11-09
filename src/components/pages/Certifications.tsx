@@ -105,7 +105,7 @@ const Certifications: React.FC = () =>
                     <h1 className="text-3xl font-bold text-gray-900 mb-4">Certifications</h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                         Professional certifications demonstrating expertise in conversational AI,
-                        cloud architecture, data engineering, and machine learning technologies.
+                        Prompt Engineeering, RAG, LLMS & data engineering.
                     </p>
                 </div>
 
@@ -152,7 +152,7 @@ const Certifications: React.FC = () =>
                         </div>
                         <div>
                             <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span className="text-2xl font-bold text-blue-600">2023</span>
+                                <span className="text-2xl font-bold text-blue-600">2025</span>
                             </div>
                             <h3 className="font-semibold text-gray-900 mb-1">Most Recent</h3>
                             <p className="text-gray-600 text-sm">Latest certification year</p>
@@ -187,15 +187,15 @@ const Certifications: React.FC = () =>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="bg-yellow-50 p-4 rounded-lg">
                                 <h4 className="font-semibold text-yellow-900 mb-2">LangChain Expert Certification</h4>
-                                <p className="text-yellow-700 text-sm">Expected: Q2 2024</p>
+                                <p className="text-yellow-700 text-sm">Expected: Q2 2026</p>
                             </div>
                             <div className="bg-yellow-50 p-4 rounded-lg">
                                 <h4 className="font-semibold text-yellow-900 mb-2">Vector Database Specialist</h4>
-                                <p className="text-yellow-700 text-sm">Expected: Q2 2024</p>
+                                <p className="text-yellow-700 text-sm">Expected: Q2 2026</p>
                             </div>
                             <div className="bg-yellow-50 p-4 rounded-lg">
                                 <h4 className="font-semibold text-yellow-900 mb-2">Advanced RAG Implementation</h4>
-                                <p className="text-yellow-700 text-sm">Expected: Q1 2024</p>
+                                <p className="text-yellow-700 text-sm">Expected: Q1 2026</p>
                             </div>
                         </div>
                     </div>

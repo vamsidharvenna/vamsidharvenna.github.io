@@ -90,9 +90,10 @@ export const portfolioConfig: PortfolioConfig = {
       icon: "linkedin",
     },
     {
-      platform: "Twitter",
-      url: "https://twitter.com/venna_reddy",
-      icon: "twitter",
+      
+     platform: "WhatsApp",
+     url: "https://wa.me/12163925578",   // ✅ replace with your WhatsApp number (international format, no +)
+     icon: "whatsapp",
     },
     {
       platform: "Email",
@@ -137,18 +138,18 @@ export const portfolioConfig: PortfolioConfig = {
   projects: [
     {
       id: "enterprise-chatbot",
-      title: "Enterprise Customer Service Chatbot",
+      title: "HealthLink – Healthcare Provider Finder Chatbot",
       description:
-        "Advanced conversational AI system built with Dialogflow CX for enterprise customer support",
+        "AI-powered virtual assistant built with IBM Watson Assistant to help members find nearby doctors and specialists",
       longDescription:
-        "A comprehensive enterprise-grade chatbot solution featuring multi-intent handling, context management, sentiment analysis, and seamless human handoff. Reduced customer service response time by 70% and improved customer satisfaction scores by 40%.",
+        "A complete healthcare chatbot solution featuring secure member lookup, specialty detection, zip code validation, and provider search powered by cloud database integration. The system retrieves real-time member and provider data from IBM Cloud Databases (PostgreSQL) through a Node.js webhook service, prioritizes in-network providers, and returns the top three closest matches. Includes robust error handling, fallback responses, and partial zip code search logic for a smooth member experience.",
       image: "/api/placeholder/600/400",
       technologies: [
-        "Dialogflow CX",
-        "Google Cloud",
-        "Python",
+        "IBM Watson Assistant",
+        "IBM Cloud Databases (PostgreSQL)",
+        "Node.js",
         "Webhook Integration",
-        "BigQuery",
+        "Rest APIs"
       ],
       demoUrl: "https://chatbot-demo.example.com",
       githubUrl:
@@ -157,18 +158,19 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "rag-knowledge-assistant",
-      title: "RAG-Powered Knowledge Assistant",
+      title: "M3 Travel Assistant",
       description:
-        "Intelligent knowledge retrieval system using RAG architecture with LLMs",
+        "Intelligent travel booking assistant built using Kore.ai XO11 with Cloud Run & Cloud SQL",
       longDescription:
-        "A sophisticated knowledge assistant that combines retrieval-augmented generation with vector databases to provide accurate, contextual responses. Features document ingestion, semantic search, and real-time knowledge updates with 95% accuracy in domain-specific queries.",
+        "A Kore.ai-based virtual agent that enables users to book flights, fetch booking details, and resolve travel inquiries through natural conversation. The system uses agent nodes for structured data capture, sub-intents for entity amendments, multilingual prompts, and XO GPT for empathetic responses. Backend services are deployed on Cloud Run, with booking data stored in Cloud SQL, enabling secure real-time retrieval through REST APIs. Includes robust interruption handling, follow-up tasks, fallback flows, and analytics dashboards for dialog and FAQ performance insights.",
       image: "/api/placeholder/600/400",
       technologies: [
-        "LangChain",
-        "OpenAI GPT",
-        "Vector Database",
-        "Python",
-        "FastAPI",
+        "Kore.ai XO11",
+        "Agent Nodes",
+        "NLP Training",
+        "REST APIs",
+        "Cloud SQL",
+        "Cloud Run"
       ],
       demoUrl: "https://knowledge-assistant.example.com",
       githubUrl: "https://github.com/vennavamsidharreddy-cell/rag-assistant",
@@ -176,12 +178,12 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "kore-ai-banking-bot",
-      title: "Banking Virtual Assistant",
-      description: "Omnichannel banking assistant built with Kore.ai platform",
+      title: "Personal Portfolio Assistant",
+      description: "AI-powered portfolio chatbot built using Dialogflow CX, Playbooks, Generative AI, and Cloud Run",
       longDescription:
-        "A comprehensive banking virtual assistant handling account inquiries, transaction history, loan applications, and financial advice. Deployed across web, mobile, and voice channels with 24/7 availability and 90% automation rate.",
+        "A conversational AI portfolio assistant built with Dialogflow CX and Playbooks that allows users to explore my projects, certifications, skills, experience, and resume through dynamic, natural interactions. CX Generators powered by Gemini retrieve contextual answers from custom Google Data Stores, enabling fully adaptive and personalized responses. Backend services run on Cloud Run (Node.js), handling email/SMS alerts through Twilio, and enabling real-time human chat handoff via Telegram, coordinated through Firestore bridge documents. Features include multi-page orchestration, multi-intent routing, live chat mode, user detail collection, and robust fallback logic for a seamless user experience.",
       image: "/api/placeholder/600/400",
-      technologies: ["Kore.ai", "NLU", "Banking APIs", "OAuth", "Analytics"],
+      technologies: ["Dialogflow CX", "Playbooks", "Generative AI (Gemini)", "Cloud Run", "Node.js", "Firestore", "Twilio", "Telegram API"],
       demoUrl: "https://banking-bot.example.com",
       githubUrl:
         "https://github.com/vennavamsidharreddy-cell/banking-assistant",
@@ -189,18 +191,62 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "data-pipeline-automation",
-      title: "Conversational Data Pipeline",
+      title: "Banking Assistant Bot",
       description:
-        "ETL pipeline with conversational interface for data queries",
+        "AI-powered banking virtual assistant built using Kore.ai XO 10.1",
       longDescription:
-        "An innovative data engineering solution that combines traditional ETL processes with conversational AI, allowing business users to query complex datasets using natural language. Features real-time data processing and intelligent query optimization.",
+        "A Kore.ai-based banking bot supporting 30+ retail banking workflows including balance checks, fund transfers, credit card services, loan information, fraud reporting, ATM/credit card activation, and transaction history. Built with multi-turn conversations, entity amendment flows, multi-intent handling, and Knowledge AI for FAQ retrieval. Integrated with REST APIs (MockAPI) to simulate real-time banking operations and provide dynamic responses. Includes fallback handling, contextual prompts, and customer verification steps for a realistic digital banking experience.",
       image: "/api/placeholder/600/400",
-      technologies: ["Apache Spark", "Python", "Dialogflow", "SQL", "GCP"],
+      technologies: ["Kore.ai XO 10.1", "Dialog Tasks", "Knowledge AI", "REST APIs", "Multi-Intent", "Entity Amendment"],
       demoUrl: "https://data-pipeline.example.com",
       githubUrl:
         "https://github.com/vennavamsidharreddy-cell/conversational-etl",
       featured: false,
     },
+    {
+      id: "data-pipeline-automation",
+      title: "Verizon Assistant  – Omnichannel Virtual Assistant",
+      description:
+        "AI-powered customer support assistant built using Dialogflow CX, Playbooks & Vertex AI",
+      longDescription:
+        "I designed and optimized Verizon’s omnichannel virtual assistant using Dialogflow CX, Playbooks, and Vertex AI, developing intelligent chat and voice flows across web, mobile, and IVR. I contributed to multi-turn conversational design, contextual prompts, and advanced NLU training, improving accuracy and reducing fallback rates. I implemented Playbooks with custom data stores to drive generative responses and integrated the assistant with Google Cloud Functions, Firestore, and Cloud SQL for real-time data retrieval and automated workflows. I also refined SSML-based voice output, strengthened fallback/error handling, and used analytics and logs to continuously enhance NLU performance, user experience, and overall automation efficiency.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Dialogflow CX", "Playbooks", "Vertex AI", "Cloud run","Firestore", "Cloud SQL"],
+      featured: false,
+    },
+    {
+      id: "data-pipeline-automation",
+      title: "Vitech Systems Group – Pension Services Virtual Assistant",
+      description:
+        "AI-powered pension support chatbot built using Kore.ai XO for U.S. public sector clients",
+      longDescription:
+        "At Vitech Systems Group, I developed Kore.ai–based virtual assistants for U.S. pension providers, automating routine data retrieval, compliance checks, and policy inquiries to reduce manual effort and improve workflow efficiency. I designed end-to-end Dialog Tasks with custom business logic, workflow automation, multi-intent handling, multi-turn conversational flows, and entity amendment to support adaptive interactions. I trained and validated NLP models by creating intents, entities, synonyms, and conducting extensive utterance and batch testing to improve recognition accuracy and reduce fallbacks. I engineered custom API endpoints for pension data retrieval and benefit calculations, enabling seamless integration between the chatbot and internal pension systems. I also architected a Node.js- and Python-based middle layer connecting the bot with Teradata and SQL databases, enabling real-time pension data access, automated reporting, and self-service features that improved case resolution by 35%.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Kore.ai", "Dialog Tasks", "NLP Training", "Teradata", "SQL Databases", "Node.js", "Python"],
+      featured: false,
+    },
+    {
+      id: "data-pipeline-automation",
+      title: "Vitech Systems Group – Enterprise ETL & Pension Data Engineering Project",
+      description:
+        "ETL pipeline development and large-scale SQL analytics for U.S. pension data systems",
+      longDescription:
+        "Supported enterprise data engineering initiatives by building ETL pipelines to integrate data from 12+ legacy systems into Teradata, improving data accessibility and reporting accuracy for major U.S. pension clients. Developed and optimized high-performance SQL queries for large datasets (up to 1TB), accelerating data retrieval and improving query efficiency by 30%. Collaborated with data scientists and analysts to define data requirements, validate ETL processes, and ensure SOC2-compliant data quality for reliable client reporting.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Teradata", "SQL", "Python", "ETL Pipelines", "Data Warehousing", "Large-Scale Analytics"],
+      featured: false,
+    },
+
+
+
+
+
+
+
+
+
+
+
   ],
 
   experience: [

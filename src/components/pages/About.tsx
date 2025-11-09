@@ -35,9 +35,7 @@ const About: React.FC = () =>
                             </p>
 
                             <p className="leading-relaxed mb-6">
-                                I care about trustworthy GenAI, latency, and developing solutions that deliver
-                                real business value. My approach combines technical expertise with user-centered
-                                design to create conversational experiences that feel natural and helpful.
+                                I care about building trustworthy, high-accuracy conversational AI that feels natural, responds with low latency, and delivers measurable business impact. My approach blends GenAI, prompt engineering, and UX-driven design to create intelligent assistants that are reliable, context-aware, and genuinely helpful to users.
                             </p>
 
                             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-teal-200 pb-2">
@@ -46,23 +44,27 @@ const About: React.FC = () =>
                             <ul className="space-y-3 mb-8">
                                 <li className="flex items-start">
                                     <span className="text-teal-500 mr-3 mt-1">•</span>
-                                    <span>Design and implement enterprise-grade conversational AI systems using Dialogflow CX and Kore.ai</span>
+                                    <span>Design and develop enterprise conversational AI systems using Dialogflow CX, Playbooks, Kore.ai XO 11,IBM watson x, and LLMS.</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="text-teal-500 mr-3 mt-1">•</span>
-                                    <span>Build RAG (Retrieval Augmented Generation) systems for accurate, context-aware responses</span>
+                                    <span>Build GenAI-driven conversational flows, including agentic logic, generators, data stores, and contextual reasoning.</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="text-teal-500 mr-3 mt-1">•</span>
-                                    <span>Engineer data pipelines that power intelligent conversational experiences</span>
+                                    <span>Train and refine NLP models (intents, entities, multi-intent detection, context handling) using LLMs like Gemini and GPT-4o.</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="text-teal-500 mr-3 mt-1">•</span>
-                                    <span>Optimize prompts and fine-tune LLMs for specific business use cases</span>
+                                    <span>Integrate virtual assistants with backend systems using webhooks, REST APIs, Cloud Functions, Firestore, and SQL databases.</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="text-teal-500 mr-3 mt-1">•</span>
-                                    <span>Integrate conversational interfaces with existing enterprise systems</span>
+                                    <span>Implement omnichannel experiences across chat, voice, IVR, and mobile using STT, TTS, and SSML.</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="text-teal-500 mr-3 mt-1">•</span>
+                                    <span>Optimize prompts and tune LLM behavior for business-specific tasks, reasoning flows, and production-grade accuracy.</span>
                                 </li>
                             </ul>
 
@@ -70,9 +72,7 @@ const About: React.FC = () =>
                                 My Philosophy
                             </h2>
                             <p className="leading-relaxed mb-8">
-                                I believe that the best conversational AI solutions are those that solve real problems
-                                and enhance human capabilities rather than replace them. Every project I work on is
-                                guided by principles of reliability, transparency, and measurable impact on user experience.
+                                I believe conversational AI should enhance human capability — not replace it. The best virtual assistants are transparent, context-aware, and grounded in real business value. My work is guided by reliability, user-centric design, ethical GenAI practices, and continuous improvement through data, analytics, and customer feedback. Every solution I build aims to make interactions simpler, faster, and more meaningful for the end user.
                             </p>
                         </div>
 
@@ -87,7 +87,7 @@ const About: React.FC = () =>
                             </div>
                             <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg text-center">
                                 <h3 className="font-bold text-gray-800 mb-2">Specialization</h3>
-                                <p className="text-gray-600">Conversational AI & Data Engineering</p>
+                                <p className="text-gray-600">Conversational AI Developer & Prompt engineer</p>
                             </div>
                         </div>
 
@@ -95,16 +95,16 @@ const About: React.FC = () =>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Key Achievements</h3>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                                 <div>
-                                    <p className="text-2xl font-bold text-teal-600">15+</p>
+                                    <p className="text-2xl font-bold text-teal-600">7+</p>
                                     <p className="text-sm text-gray-600">Enterprise Chatbots</p>
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold text-teal-600">70%</p>
-                                    <p className="text-sm text-gray-600">Response Time Reduction</p>
+                                    <p className="text-2xl font-bold text-teal-600">25%</p>
+                                    <p className="text-sm text-gray-600">fallback reduction</p>
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold text-teal-600">95%</p>
-                                    <p className="text-sm text-gray-600">Query Accuracy</p>
+                                    <p className="text-2xl font-bold text-teal-600">92%</p>
+                                    <p className="text-sm text-gray-600">intent accuracy</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-bold text-teal-600">40%</p>

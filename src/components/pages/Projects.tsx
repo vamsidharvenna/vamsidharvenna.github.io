@@ -15,8 +15,7 @@ const Projects: React.FC = () =>
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-4">Projects</h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Explore my portfolio of conversational AI and data engineering projects,
-                        showcasing expertise in Dialogflow CX, Kore.ai, RAG systems, and enterprise solutions.
+                        Explore my portfolio of enterprise-grade conversational AI, Gen AI, and data engineering projects—featuring Dialogflow CX, Kore.ai XO, IBM Watson Assistant, Cloud Run architectures, NLP model training, and scalable automation solutions.
                     </p>
                 </div>
 
@@ -82,30 +81,30 @@ const Projects: React.FC = () =>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         <div className="text-center">
                             <div className="bg-teal-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span className="text-2xl font-bold text-teal-600">15+</span>
+                                <span className="text-2xl font-bold text-teal-600">7+</span>
                             </div>
                             <h3 className="font-semibold text-gray-900 mb-1">Enterprise Chatbots</h3>
                             <p className="text-gray-600 text-sm">Successfully deployed across multiple industries</p>
                         </div>
                         <div className="text-center">
                             <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span className="text-2xl font-bold text-blue-600">70%</span>
+                                <span className="text-2xl font-bold text-blue-600">25%</span>
                             </div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Response Time Reduction</h3>
+                            <h3 className="font-semibold text-gray-900 mb-1">fallback reduction</h3>
                             <p className="text-gray-600 text-sm">Average improvement across all projects</p>
                         </div>
                         <div className="text-center">
                             <div className="bg-purple-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span className="text-2xl font-bold text-purple-600">95%</span>
+                                <span className="text-2xl font-bold text-purple-600">92%</span>
                             </div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Query Accuracy</h3>
-                            <p className="text-gray-600 text-sm">Domain-specific RAG system performance</p>
+                            <h3 className="font-semibold text-gray-900 mb-1">intent accuracy</h3>
+                            <p className="text-gray-600 text-sm">Domain-specific intent accuracy perfomance</p>
                         </div>
                         <div className="text-center">
                             <div className="bg-green-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span className="text-2xl font-bold text-green-600">40%</span>
+                                <span className="text-2xl font-bold text-green-600">20%</span>
                             </div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Customer Satisfaction</h3>
+                            <h3 className="font-semibold text-gray-900 mb-1">CX Improvement</h3>
                             <p className="text-gray-600 text-sm">Improvement in user experience metrics</p>
                         </div>
                     </div>
@@ -115,7 +114,7 @@ const Projects: React.FC = () =>
                 <div className="bg-gray-100 rounded-lg p-8 mt-8">
                     <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Technologies & Frameworks</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[ 'Dialogflow CX', 'Kore.ai', 'LangChain', 'OpenAI GPT', 'Python', 'Apache Spark', 'Google Cloud', 'Vector Databases' ].map( ( tech ) => (
+                        {[ 'Dialogflow CX', 'Kore.ai XO11', 'IBM Watson Assistant', 'Playbooks', 'Vertex AI', 'OpenAI GPT', 'Prompt Engineering', 'Python', 'SQL', 'Node.js', 'JavaScript', 'Google Cloud', 'REST APIs', 'Webhooks'].map( ( tech ) => (
                             <div key={tech} className="bg-white p-3 rounded-lg text-center">
                                 <span className="font-medium text-gray-800">{tech}</span>
                             </div>
