@@ -1,10 +1,11 @@
 import React from 'react';
 import { portfolioConfig } from '../../config/portfolio';
+import AnimatedChatWidget from '../ui/AnimatedChatWidget';
 import Icon from '../ui/Icon';
 import Navigation from '../ui/Navigation';
-import AnimatedChatWidget from '../ui/AnimatedChatWidget';
 
-const Home: React.FC = () => {
+const Home: React.FC = () =>
+{
     return (
         <div className="min-h-screen bg-gray-50">
             <Navigation />
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
 
                     {/* Social Links */}
                     <div className="space-y-3">
-                        {portfolioConfig.socialLinks.map((social) => (
+                        {portfolioConfig.socialLinks.map( ( social ) => (
                             <a
                                 key={social.platform}
                                 href={social.url}
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
                                 <Icon name={social.icon} className="w-5 h-5" />
                                 <span className="text-sm">{social.platform}</span>
                             </a>
-                        ))}
+                        ) )}
                     </div>
                 </div>
             </div>
@@ -65,8 +66,6 @@ const Home: React.FC = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Animated Chat Widget Component */}
             <AnimatedChatWidget />
         </div>
     );

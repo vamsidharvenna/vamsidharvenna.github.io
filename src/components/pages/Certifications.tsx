@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedChatWidget from '../ui/AnimatedChatWidget';
 import Footer from '../ui/Footer';
 import Navigation from '../ui/Navigation';
 
@@ -12,7 +13,7 @@ const Certifications: React.FC = () =>
             date: "2025",
             credentialId: "D19M1E16N5C5",
             URL: "https://coursera.org/verify/specialization/D19M1E16N5C5",
-            description: "Earned Google’s Prompting Essentials certification, strengthening skills in advanced prompting techniques, multimodal prompting, and reusable prompt design.",
+            description: "Earned Google's Prompting Essentials certification, strengthening skills in advanced prompting techniques, multimodal prompting, and reusable prompt design.",
             category: "Prompt Engineering"
         },
         {
@@ -41,7 +42,7 @@ const Certifications: React.FC = () =>
             issuer: "Kore.ai",
             date: "2025",
             credentialId: "XO 11",
-            URL:"https://academy.kore.ai/",
+            URL: "https://academy.kore.ai/",
             description: "Completed Kore.ai Automation AI Basic Training with hands-on skills in agent nodes, automation flows, LLM integrations, and building intelligent virtual assistants.",
             category: "Conversational AI"
         },
@@ -51,7 +52,7 @@ const Certifications: React.FC = () =>
             issuer: "Kore.ai",
             date: "2025",
             credentialId: "XO 11",
-            URL:"https://academy.kore.ai/",
+            URL: "https://academy.kore.ai/",
             description: "Certified in Kore.ai Automation AI Advanced Training with hands-on expertise in advanced conversational flows, multilingual enablement, analytics, and secure LLM-powered automation.",
             category: "Conversational AI"
         },
@@ -61,7 +62,7 @@ const Certifications: React.FC = () =>
             issuer: "Google",
             date: "2022",
             credentialId: "1124",
-            URL:"https://www.cloudskillsboost.google/course_templates/1124/badge",
+            URL: "https://www.cloudskillsboost.google/course_templates/1124/badge",
             description: "Learned core Dialogflow CX design principles, building virtual agents with intents, entities, flows, and webhook integrations.",
             category: "Conversational AI"
         },
@@ -71,7 +72,7 @@ const Certifications: React.FC = () =>
             issuer: "Kore.ai",
             date: "2023",
             credentialId: "Xo 8",
-            URL:"https://academy.kore.ai/",
+            URL: "https://academy.kore.ai/",
             description: "Completed Kore.ai XO basic training covering virtual assistant development, NLP configuration, and platform workflow fundamentals.",
             category: "Conversational AI"
         },
@@ -81,7 +82,7 @@ const Certifications: React.FC = () =>
             issuer: "Google",
             date: "2024",
             credentialId: "dcc086514fa54a8f842bfad4a2a20280",
-            URL:"https://www.credly.com/badges/fbc717f1-859f-4610-99e9-a52410916466/public_url",
+            URL: "https://www.credly.com/badges/fbc717f1-859f-4610-99e9-a52410916466/public_url",
             description: "Certified in designing, building, and operationalizing secure, scalable data pipelines on Google Cloud for analytics and machine learning.",
             category: "Data Engineering"
         }
@@ -125,13 +126,15 @@ const Certifications: React.FC = () =>
                                                 {cert.date}
                                             </span>
                                         </div>
-
                                         <p className="text-teal-600 font-semibold mb-2">{cert.issuer}</p>
                                         <p className="text-gray-600 mb-3 leading-relaxed">{cert.description}</p>
-
+                                        <a href={cert.URL} target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline text-sm mb-2 inline-block">
+                                            View Credential
+                                        </a>
                                         <div className="text-sm text-gray-500 bg-gray-50 p-2 rounded">
                                             <span className="font-medium">Credential ID:</span> {cert.credentialId}
                                         </div>
+
                                     </div>
                                 ) )}
                             </div>
@@ -201,7 +204,7 @@ const Certifications: React.FC = () =>
                     </div>
                 </div>
             </div>
-
+            <AnimatedChatWidget />
             <Footer />
         </div>
     );

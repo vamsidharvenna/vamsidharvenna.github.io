@@ -1,5 +1,6 @@
 import React from 'react';
 import { portfolioConfig } from '../../config/portfolio';
+import AnimatedChatWidget from '../ui/AnimatedChatWidget';
 import Footer from '../ui/Footer';
 import Icon from '../ui/Icon';
 import Navigation from '../ui/Navigation';
@@ -114,7 +115,7 @@ const Projects: React.FC = () =>
                 <div className="bg-gray-100 rounded-lg p-8 mt-8">
                     <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Technologies & Frameworks</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[ 'Dialogflow CX', 'Kore.ai XO11', 'IBM Watson Assistant', 'Playbooks', 'Vertex AI', 'OpenAI GPT', 'Prompt Engineering', 'Python', 'SQL', 'Node.js', 'JavaScript', 'Google Cloud', 'REST APIs', 'Webhooks'].map( ( tech ) => (
+                        {[ 'Dialogflow CX', 'Kore.ai XO11', 'IBM Watson Assistant', 'Playbooks', 'Vertex AI', 'OpenAI GPT', 'Prompt Engineering', 'Python', 'SQL', 'Node.js', 'JavaScript', 'Google Cloud', 'REST APIs', 'Webhooks' ].map( ( tech ) => (
                             <div key={tech} className="bg-white p-3 rounded-lg text-center">
                                 <span className="font-medium text-gray-800">{tech}</span>
                             </div>
@@ -122,7 +123,7 @@ const Projects: React.FC = () =>
                     </div>
                 </div>
             </div>
-
+            <AnimatedChatWidget />
             <Footer />
         </div>
     );

@@ -18,7 +18,7 @@ export interface SocialLink {
 export interface Skill {
   name: string;
   category: string;
-  level: number; // 0-100 proficiency indicator
+  level: number;
 }
 
 export interface Project {
@@ -38,7 +38,7 @@ export interface Experience {
   company: string;
   position: string;
   startDate: string;
-  endDate: string | null; // null for current position
+  endDate: string | null;
   description: string;
   responsibilities: string[];
   technologies: string[];
@@ -74,7 +74,7 @@ export const portfolioConfig: PortfolioConfig = {
     location: "Edmond, Oklahoma, US",
     email: "vennavamsidharreddy@gmail.com",
     phone: "+1 (405)-861-6529",
-    bio: "I’m a Conversational AI Developer focused on creating intelligent virtual assistants that think, learn, and engage like humans. My work blends Gen AI, NLP, and automation to design conversational experiences that simplify customer interactions across web, mobile, and voice channels. I specialize in Dialogflow CX, Kore.ai XO11, IBM Watson Assistant, and Vertex AI, using prompt engineering, Playbooks, and contextual logic to build adaptive, human-centric chat and voice bots. At Verizon, I design Agentic AI-driven assistants that improve accuracy, personalization, and automation, reducing fallback rates and enhancing self-service resolution. Earlier, at Vitech Systems Group, I built Kore.ai chatbots for U.S. pension systems, integrating APIs, SQL databases, and real-time data pipelines to streamline policy inquiries and automate workflows. Skilled in GCP, BigQuery, Cloud Functions, Firestore, and REST APIs, I combine AI development expertise with strong problem-solving and system design abilities to bridge the gap between technology and user experience while delivering scalable, intuitive, and impactful conversational solutions.",
+    bio: "I'm a Conversational AI Developer focused on creating intelligent virtual assistants that think, learn, and engage like humans. My work blends Gen AI, NLP, and automation to design conversational experiences that simplify customer interactions across web, mobile, and voice channels. I specialize in Dialogflow CX, Kore.ai XO11, IBM Watson Assistant, and Vertex AI, using prompt engineering, Playbooks, and contextual logic to build adaptive, human-centric chat and voice bots. At Verizon, I design Agentic AI-driven assistants that improve accuracy, personalization, and automation, reducing fallback rates and enhancing self-service resolution. Earlier, at Vitech Systems Group, I built Kore.ai chatbots for U.S. pension systems, integrating APIs, SQL databases, and real-time data pipelines to streamline policy inquiries and automate workflows. Skilled in GCP, BigQuery, Cloud Functions, Firestore, and REST APIs, I combine AI development expertise with strong problem-solving and system design abilities to bridge the gap between technology and user experience while delivering scalable, intuitive, and impactful conversational solutions.",
     avatar: "/assets/images/avatar.jpg",
   },
 
@@ -91,7 +91,7 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       platform: "WhatsApp",
-      url: "https://wa.me/12163925578", // ✅ replace with your WhatsApp number (international format, no +)
+      url: "https://wa.me/12163925578",
       icon: "whatsapp",
     },
     {
@@ -169,7 +169,7 @@ export const portfolioConfig: PortfolioConfig = {
   projects: [
     {
       id: "enterprise-chatbot",
-      title: "HealthLink – Healthcare Provider Finder Chatbot",
+      title: "HealthLink - Healthcare Provider Finder Chatbot",
       description:
         "AI-powered virtual assistant built with IBM Watson Assistant to help members find nearby doctors and specialists",
       longDescription:
@@ -253,11 +253,11 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "data-pipeline-automation",
-      title: "Verizon Assistant  – Omnichannel Virtual Assistant",
+      title: "Verizon Assistant  - Omnichannel Virtual Assistant",
       description:
         "AI-powered customer support assistant built using Dialogflow CX, Playbooks & Vertex AI",
       longDescription:
-        "I designed and optimized Verizon’s omnichannel virtual assistant using Dialogflow CX, Playbooks, and Vertex AI, developing intelligent chat and voice flows across web, mobile, and IVR. I contributed to multi-turn conversational design, contextual prompts, and advanced NLU training, improving accuracy and reducing fallback rates. I implemented Playbooks with custom data stores to drive generative responses and integrated the assistant with Google Cloud Functions, Firestore, and Cloud SQL for real-time data retrieval and automated workflows. I also refined SSML-based voice output, strengthened fallback/error handling, and used analytics and logs to continuously enhance NLU performance, user experience, and overall automation efficiency.",
+        "I designed and optimized Verizon's omnichannel virtual assistant using Dialogflow CX, Playbooks, and Vertex AI, developing intelligent chat and voice flows across web, mobile, and IVR. I contributed to multi-turn conversational design, contextual prompts, and advanced NLU training, improving accuracy and reducing fallback rates. I implemented Playbooks with custom data stores to drive generative responses and integrated the assistant with Google Cloud Functions, Firestore, and Cloud SQL for real-time data retrieval and automated workflows. I also refined SSML-based voice output, strengthened fallback/error handling, and used analytics and logs to continuously enhance NLU performance, user experience, and overall automation efficiency.",
       image: "/api/placeholder/600/400",
       technologies: [
         "Dialogflow CX",
@@ -271,11 +271,11 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "data-pipeline-automation",
-      title: "Vitech Systems Group – Pension Services Virtual Assistant",
+      title: "Vitech Systems Group - Pension Services Virtual Assistant",
       description:
         "AI-powered pension support chatbot built using Kore.ai XO for U.S. public sector clients",
       longDescription:
-        "At Vitech Systems Group, I developed Kore.ai–based virtual assistants for U.S. pension providers, automating routine data retrieval, compliance checks, and policy inquiries to reduce manual effort and improve workflow efficiency. I designed end-to-end Dialog Tasks with custom business logic, workflow automation, multi-intent handling, multi-turn conversational flows, and entity amendment to support adaptive interactions. I trained and validated NLP models by creating intents, entities, synonyms, and conducting extensive utterance and batch testing to improve recognition accuracy and reduce fallbacks. I engineered custom API endpoints for pension data retrieval and benefit calculations, enabling seamless integration between the chatbot and internal pension systems. I also architected a Node.js- and Python-based middle layer connecting the bot with Teradata and SQL databases, enabling real-time pension data access, automated reporting, and self-service features that improved case resolution by 35%.",
+        "At Vitech Systems Group, I developed Kore.ai-based virtual assistants for U.S. pension providers, automating routine data retrieval, compliance checks, and policy inquiries to reduce manual effort and improve workflow efficiency. I designed end-to-end Dialog Tasks with custom business logic, workflow automation, multi-intent handling, multi-turn conversational flows, and entity amendment to support adaptive interactions. I trained and validated NLP models by creating intents, entities, synonyms, and conducting extensive utterance and batch testing to improve recognition accuracy and reduce fallbacks. I engineered custom API endpoints for pension data retrieval and benefit calculations, enabling seamless integration between the chatbot and internal pension systems. I also architected a Node.js- and Python-based middle layer connecting the bot with Teradata and SQL databases, enabling real-time pension data access, automated reporting, and self-service features that improved case resolution by 35%.",
       image: "/api/placeholder/600/400",
       technologies: [
         "Kore.ai",
@@ -291,7 +291,7 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "data-pipeline-automation",
       title:
-        "Vitech Systems Group – Enterprise ETL & Pension Data Engineering Project",
+        "Vitech Systems Group - Enterprise ETL & Pension Data Engineering Project",
       description:
         "ETL pipeline development and large-scale SQL analytics for U.S. pension data systems",
       longDescription:
