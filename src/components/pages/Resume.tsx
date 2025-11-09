@@ -113,15 +113,6 @@ const Resume: React.FC = () =>
                                             {skills.map( ( skill ) => (
                                                 <div key={skill.name} className="flex justify-between items-center">
                                                     <span className="text-sm text-gray-700">{skill.name}</span>
-                                                    <div className="flex items-center space-x-2">
-                                                        <div className="w-16 bg-gray-200 rounded-full h-2">
-                                                            <div
-                                                                className="bg-teal-500 h-2 rounded-full"
-                                                                style={{ width: `${ skill.level }%` }}
-                                                            ></div>
-                                                        </div>
-                                                        <span className="text-xs text-gray-500">{skill.level}%</span>
-                                                    </div>
                                                 </div>
                                             ) )}
                                         </div>

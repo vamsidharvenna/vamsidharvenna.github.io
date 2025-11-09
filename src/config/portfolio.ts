@@ -74,7 +74,7 @@ export const portfolioConfig: PortfolioConfig = {
     location: "Edmond, Oklahoma, US",
     email: "vennavamsidharreddy@gmail.com",
     phone: "+1 (405)-861-6529",
-    bio:"I’m a Conversational AI Developer focused on creating intelligent virtual assistants that think, learn, and engage like humans. My work blends Gen AI, NLP, and automation to design conversational experiences that simplify customer interactions across web, mobile, and voice channels. I specialize in Dialogflow CX, Kore.ai XO11, IBM Watson Assistant, and Vertex AI, using prompt engineering, Playbooks, and contextual logic to build adaptive, human-centric chat and voice bots. At Verizon, I design Agentic AI-driven assistants that improve accuracy, personalization, and automation, reducing fallback rates and enhancing self-service resolution. Earlier, at Vitech Systems Group, I built Kore.ai chatbots for U.S. pension systems, integrating APIs, SQL databases, and real-time data pipelines to streamline policy inquiries and automate workflows. Skilled in GCP, BigQuery, Cloud Functions, Firestore, and REST APIs, I combine AI development expertise with strong problem-solving and system design abilities to bridge the gap between technology and user experience while delivering scalable, intuitive, and impactful conversational solutions.",
+    bio: "I’m a Conversational AI Developer focused on creating intelligent virtual assistants that think, learn, and engage like humans. My work blends Gen AI, NLP, and automation to design conversational experiences that simplify customer interactions across web, mobile, and voice channels. I specialize in Dialogflow CX, Kore.ai XO11, IBM Watson Assistant, and Vertex AI, using prompt engineering, Playbooks, and contextual logic to build adaptive, human-centric chat and voice bots. At Verizon, I design Agentic AI-driven assistants that improve accuracy, personalization, and automation, reducing fallback rates and enhancing self-service resolution. Earlier, at Vitech Systems Group, I built Kore.ai chatbots for U.S. pension systems, integrating APIs, SQL databases, and real-time data pipelines to streamline policy inquiries and automate workflows. Skilled in GCP, BigQuery, Cloud Functions, Firestore, and REST APIs, I combine AI development expertise with strong problem-solving and system design abilities to bridge the gap between technology and user experience while delivering scalable, intuitive, and impactful conversational solutions.",
     avatar: "/assets/images/avatar.jpg",
   },
 
@@ -90,10 +90,9 @@ export const portfolioConfig: PortfolioConfig = {
       icon: "linkedin",
     },
     {
-      
-     platform: "WhatsApp",
-     url: "https://wa.me/12163925578",   // ✅ replace with your WhatsApp number (international format, no +)
-     icon: "whatsapp",
+      platform: "WhatsApp",
+      url: "https://wa.me/12163925578", // ✅ replace with your WhatsApp number (international format, no +)
+      icon: "whatsapp",
     },
     {
       platform: "Email",
@@ -103,36 +102,68 @@ export const portfolioConfig: PortfolioConfig = {
   ],
 
   skills: [
-   // Conversational AI
-  { name: "Dialogflow CX", category: "Conversational AI", level: 92 },
-  { name: "Kore.ai XO11", category: "Conversational AI", level: 88 },
-  { name: "IBM Watson Assistant", category: "Conversational AI", level: 80 },
-  { name: "Intent Recognition & NLP Training", category: "Conversational AI", level: 90 },
-  { name: "Entity Extraction", category: "Conversational AI", level: 88 },
-  { name: "Playbooks & Agent Flows", category: "Conversational AI", level: 85 },
-  { name: "Omnichannel Voice & Chat Design", category: "Conversational AI", level: 84 },
+    // Conversational AI
+    { name: "Dialogflow CX", category: "Conversational AI", level: 92 },
+    { name: "Kore.ai XO11", category: "Conversational AI", level: 88 },
+    { name: "IBM Watson Assistant", category: "Conversational AI", level: 80 },
+    {
+      name: "Intent Recognition & NLP Training",
+      category: "Conversational AI",
+      level: 90,
+    },
+    { name: "Entity Extraction", category: "Conversational AI", level: 88 },
+    {
+      name: "Playbooks & Agent Flows",
+      category: "Conversational AI",
+      level: 85,
+    },
+    {
+      name: "Omnichannel Voice & Chat Design",
+      category: "Conversational AI",
+      level: 84,
+    },
 
-  // AI & LLMs
-  { name: "Prompt Engineering", category: "AI & LLMs", level: 92 },
-  { name: "Large Language Models (Gemini, GPT-4o, Azure OpenAI)", category: "AI & LLMs", level: 88 },
-  { name: "Agentic AI Design", category: "AI & LLMs", level: 86 },
-  { name: "Multi-Intent Detection", category: "AI & LLMs", level: 85 },
-  { name: "Context Handling & Dialogue Generation", category: "AI & LLMs", level: 87 },
+    // AI & LLMs
+    { name: "Prompt Engineering", category: "AI & LLMs", level: 92 },
+    {
+      name: "Large Language Models (Gemini, GPT-4o, Azure OpenAI)",
+      category: "AI & LLMs",
+      level: 88,
+    },
+    { name: "Agentic AI Design", category: "AI & LLMs", level: 86 },
+    { name: "Multi-Intent Detection", category: "AI & LLMs", level: 85 },
+    {
+      name: "Context Handling & Dialogue Generation",
+      category: "AI & LLMs",
+      level: 87,
+    },
 
-  // Cloud & Automation
-  { name: "Google Cloud Platform (GCP)", category: "Cloud & Automation", level: 85 },
-  { name: "Vertex AI & CCAI", category: "Cloud & Automation", level: 84 },
-  { name: "Cloud Functions & Firestore", category: "Cloud & Automation", level: 82 },
-  { name: "REST APIs & Webhooks", category: "Cloud & Automation", level: 86 },
-  { name: "API Integration & Automation", category: "Cloud & Automation", level: 86 },
-  { name: "Git & GitHub", category: "Cloud & Automation", level: 90 },
+    // Cloud & Automation
+    {
+      name: "Google Cloud Platform (GCP)",
+      category: "Cloud & Automation",
+      level: 85,
+    },
+    { name: "Vertex AI & CCAI", category: "Cloud & Automation", level: 84 },
+    {
+      name: "Cloud Functions & Firestore",
+      category: "Cloud & Automation",
+      level: 82,
+    },
+    { name: "REST APIs & Webhooks", category: "Cloud & Automation", level: 86 },
+    {
+      name: "API Integration & Automation",
+      category: "Cloud & Automation",
+      level: 86,
+    },
+    { name: "Git & GitHub", category: "Cloud & Automation", level: 90 },
 
-  // Programming & Data
-  { name: "Python", category: "Programming & Data", level: 88 },
-  { name: "SQL", category: "Programming & Data", level: 86 },
-  { name: "Node.js", category: "Programming & Data", level: 80 },
-  { name: "JavaScript", category: "Programming & Data", level: 88 },
-  { name: "Shell Scripting", category: "Programming & Data", level: 78 },
+    // Programming & Data
+    { name: "Python", category: "Programming & Data", level: 88 },
+    { name: "SQL", category: "Programming & Data", level: 86 },
+    { name: "Node.js", category: "Programming & Data", level: 80 },
+    { name: "JavaScript", category: "Programming & Data", level: 88 },
+    { name: "Shell Scripting", category: "Programming & Data", level: 78 },
   ],
 
   projects: [
@@ -149,7 +180,7 @@ export const portfolioConfig: PortfolioConfig = {
         "IBM Cloud Databases (PostgreSQL)",
         "Node.js",
         "Webhook Integration",
-        "Rest APIs"
+        "Rest APIs",
       ],
       demoUrl: "https://chatbot-demo.example.com",
       githubUrl:
@@ -170,7 +201,7 @@ export const portfolioConfig: PortfolioConfig = {
         "NLP Training",
         "REST APIs",
         "Cloud SQL",
-        "Cloud Run"
+        "Cloud Run",
       ],
       demoUrl: "https://knowledge-assistant.example.com",
       githubUrl: "https://github.com/vennavamsidharreddy-cell/rag-assistant",
@@ -179,11 +210,21 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "kore-ai-banking-bot",
       title: "Personal Portfolio Assistant",
-      description: "AI-powered portfolio chatbot built using Dialogflow CX, Playbooks, Generative AI, and Cloud Run",
+      description:
+        "AI-powered portfolio chatbot built using Dialogflow CX, Playbooks, Generative AI, and Cloud Run",
       longDescription:
         "A conversational AI portfolio assistant built with Dialogflow CX and Playbooks that allows users to explore my projects, certifications, skills, experience, and resume through dynamic, natural interactions. CX Generators powered by Gemini retrieve contextual answers from custom Google Data Stores, enabling fully adaptive and personalized responses. Backend services run on Cloud Run (Node.js), handling email/SMS alerts through Twilio, and enabling real-time human chat handoff via Telegram, coordinated through Firestore bridge documents. Features include multi-page orchestration, multi-intent routing, live chat mode, user detail collection, and robust fallback logic for a seamless user experience.",
       image: "/api/placeholder/600/400",
-      technologies: ["Dialogflow CX", "Playbooks", "Generative AI (Gemini)", "Cloud Run", "Node.js", "Firestore", "Twilio", "Telegram API"],
+      technologies: [
+        "Dialogflow CX",
+        "Playbooks",
+        "Generative AI (Gemini)",
+        "Cloud Run",
+        "Node.js",
+        "Firestore",
+        "Twilio",
+        "Telegram API",
+      ],
       demoUrl: "https://banking-bot.example.com",
       githubUrl:
         "https://github.com/vennavamsidharreddy-cell/banking-assistant",
@@ -197,7 +238,14 @@ export const portfolioConfig: PortfolioConfig = {
       longDescription:
         "A Kore.ai-based banking bot supporting 30+ retail banking workflows including balance checks, fund transfers, credit card services, loan information, fraud reporting, ATM/credit card activation, and transaction history. Built with multi-turn conversations, entity amendment flows, multi-intent handling, and Knowledge AI for FAQ retrieval. Integrated with REST APIs (MockAPI) to simulate real-time banking operations and provide dynamic responses. Includes fallback handling, contextual prompts, and customer verification steps for a realistic digital banking experience.",
       image: "/api/placeholder/600/400",
-      technologies: ["Kore.ai XO 10.1", "Dialog Tasks", "Knowledge AI", "REST APIs", "Multi-Intent", "Entity Amendment"],
+      technologies: [
+        "Kore.ai XO 10.1",
+        "Dialog Tasks",
+        "Knowledge AI",
+        "REST APIs",
+        "Multi-Intent",
+        "Entity Amendment",
+      ],
       demoUrl: "https://data-pipeline.example.com",
       githubUrl:
         "https://github.com/vennavamsidharreddy-cell/conversational-etl",
@@ -211,7 +259,14 @@ export const portfolioConfig: PortfolioConfig = {
       longDescription:
         "I designed and optimized Verizon’s omnichannel virtual assistant using Dialogflow CX, Playbooks, and Vertex AI, developing intelligent chat and voice flows across web, mobile, and IVR. I contributed to multi-turn conversational design, contextual prompts, and advanced NLU training, improving accuracy and reducing fallback rates. I implemented Playbooks with custom data stores to drive generative responses and integrated the assistant with Google Cloud Functions, Firestore, and Cloud SQL for real-time data retrieval and automated workflows. I also refined SSML-based voice output, strengthened fallback/error handling, and used analytics and logs to continuously enhance NLU performance, user experience, and overall automation efficiency.",
       image: "/api/placeholder/600/400",
-      technologies: ["Dialogflow CX", "Playbooks", "Vertex AI", "Cloud run","Firestore", "Cloud SQL"],
+      technologies: [
+        "Dialogflow CX",
+        "Playbooks",
+        "Vertex AI",
+        "Cloud run",
+        "Firestore",
+        "Cloud SQL",
+      ],
       featured: false,
     },
     {
@@ -222,31 +277,36 @@ export const portfolioConfig: PortfolioConfig = {
       longDescription:
         "At Vitech Systems Group, I developed Kore.ai–based virtual assistants for U.S. pension providers, automating routine data retrieval, compliance checks, and policy inquiries to reduce manual effort and improve workflow efficiency. I designed end-to-end Dialog Tasks with custom business logic, workflow automation, multi-intent handling, multi-turn conversational flows, and entity amendment to support adaptive interactions. I trained and validated NLP models by creating intents, entities, synonyms, and conducting extensive utterance and batch testing to improve recognition accuracy and reduce fallbacks. I engineered custom API endpoints for pension data retrieval and benefit calculations, enabling seamless integration between the chatbot and internal pension systems. I also architected a Node.js- and Python-based middle layer connecting the bot with Teradata and SQL databases, enabling real-time pension data access, automated reporting, and self-service features that improved case resolution by 35%.",
       image: "/api/placeholder/600/400",
-      technologies: ["Kore.ai", "Dialog Tasks", "NLP Training", "Teradata", "SQL Databases", "Node.js", "Python"],
+      technologies: [
+        "Kore.ai",
+        "Dialog Tasks",
+        "NLP Training",
+        "Teradata",
+        "SQL Databases",
+        "Node.js",
+        "Python",
+      ],
       featured: false,
     },
     {
       id: "data-pipeline-automation",
-      title: "Vitech Systems Group – Enterprise ETL & Pension Data Engineering Project",
+      title:
+        "Vitech Systems Group – Enterprise ETL & Pension Data Engineering Project",
       description:
         "ETL pipeline development and large-scale SQL analytics for U.S. pension data systems",
       longDescription:
         "Supported enterprise data engineering initiatives by building ETL pipelines to integrate data from 12+ legacy systems into Teradata, improving data accessibility and reporting accuracy for major U.S. pension clients. Developed and optimized high-performance SQL queries for large datasets (up to 1TB), accelerating data retrieval and improving query efficiency by 30%. Collaborated with data scientists and analysts to define data requirements, validate ETL processes, and ensure SOC2-compliant data quality for reliable client reporting.",
       image: "/api/placeholder/600/400",
-      technologies: ["Teradata", "SQL", "Python", "ETL Pipelines", "Data Warehousing", "Large-Scale Analytics"],
+      technologies: [
+        "Teradata",
+        "SQL",
+        "Python",
+        "ETL Pipelines",
+        "Data Warehousing",
+        "Large-Scale Analytics",
+      ],
       featured: false,
     },
-
-
-
-
-
-
-
-
-
-
-
   ],
 
   experience: [
@@ -259,8 +319,8 @@ export const portfolioConfig: PortfolioConfig = {
       description:
         "Developed enterprise-grade conversational AI systems for Verizon using Dialogflow CX, Playbooks, and agentic AI techniques to deliver intelligent, scalable customer experiences.",
       responsibilities: [
-        "Designed and optimized Verizon Assistant in Dialogflow CX using Conversational Agents, Chat with data stores, and Playbooks with prompt engineering, conditional logic, and Python scripting, creating adaptive virtual agents aligned with Agentic AI principles that improved contextual accuracy, increased self-service resolution by 20%, and reduced fallback rates by 25%.", 
-        "Implemented omnichannel conversational flows in Dialogflow CX, building both chat agents and voice agents with Speech-toText, Text-to-Speech, and SSML to ensure natural, consistent user experiences across web, mobile, and IVR channels.", 
+        "Designed and optimized Verizon Assistant in Dialogflow CX using Conversational Agents, Chat with data stores, and Playbooks with prompt engineering, conditional logic, and Python scripting, creating adaptive virtual agents aligned with Agentic AI principles that improved contextual accuracy, increased self-service resolution by 20%, and reduced fallback rates by 25%.",
+        "Implemented omnichannel conversational flows in Dialogflow CX, building both chat agents and voice agents with Speech-toText, Text-to-Speech, and SSML to ensure natural, consistent user experiences across web, mobile, and IVR channels.",
         "Trained NLP models in Dialogflow CX—including intents, entities, and multi-turn conversational flows with advanced context handling—leveraging Vertex AI features to enhance training and improve overall model performance.",
         "Integrated Dialogflow CX and Playbooks with back-end APIs and external systems, using webhooks, Playbook tools, Google Cloud Functions, Firestore, and Cloud SQL for fulfillment to enable real-time data retrieval and automate customer workflows.",
         "Partnered with cross-functional teams to define business requirements and deliver scalable Google CCAI solutions, while continuously refining NLU models and conversational flows using analytics, logs, and customer feedback to drive higher accuracy, responsiveness, and user experience.",
@@ -272,7 +332,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Prompt engineering",
         "Google CCAI",
         "GCP",
-        "NLP", 
+        "NLP",
       ],
       location: "New Jersey, USA",
     },
@@ -289,7 +349,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Built end-to-end Dialog Tasks in Kore.ai, implementing custom business logic, workflow automation, multi-intent detection, multi-turn conversational design, and entity amendment to support dynamic and adaptive user interactions.",
         "Trained NLP models in Kore.ai by building intents, entities, and bot synonyms, and validated performance through utterance testing, sentiment management, and batch testing, achieving 92% intent recognition accuracy and minimizing fallback responses.",
         "Engineered custom API endpoints for pension record retrieval, benefit calculations, and contribution tracking, enabling seamless data exchange between the chatbot and internal pension systems, reducing manual intervention by 30%.",
-        "Architected a middle layer to integrate the chatbot with Teradata and SQL databases using Node.js and Python, enabling real-time pension data access, automated reporting, and self-service tools that improved case resolution by 35%.",  
+        "Architected a middle layer to integrate the chatbot with Teradata and SQL databases using Node.js and Python, enabling real-time pension data access, automated reporting, and self-service tools that improved case resolution by 35%.",
       ],
       technologies: [
         "NLP",
