@@ -8,6 +8,14 @@ df-messenger {
   z-index: 998 !important;
 }
 
+/* Hide df-messenger when custom panel is open */
+.chat-panel-open df-messenger {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Verizon-inspired theme overrides for Dialogflow messenger (best-effort) */
 df-messenger {
   --df-messenger-primary-color: #e60000; /* Verizon red */

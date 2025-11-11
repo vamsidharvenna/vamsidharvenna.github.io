@@ -32,27 +32,48 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
   const clientRef = useRef<any>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const mountedRef = useRef(false);
+  const dfMessengerContainerRef = useRef<HTMLDivElement>(null);
 
-  // Load Dialogflow + Twilio scripts once
+  // Load Dialogflow + Twilio scripts once (globally, not per instance)
   useEffect(() => {
     if (mountedRef.current) return;
     mountedRef.current = true;
 
+    // Check if scripts already exist to avoid duplicates
+    const dfScriptExists = document.querySelector('script[src*="df-messenger"]');
+    const twScriptExists = document.querySelector('script[src*="twilio-conversations"]');
+
     // DF Messenger
-    const dfScript = document.createElement("script");
-    dfScript.src = "https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js";
-    dfScript.async = true;
-    document.head.appendChild(dfScript);
+    if (!dfScriptExists) {
+      const dfScript = document.createElement("script");
+      dfScript.src = "https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js";
+      dfScript.async = true;
+      document.head.appendChild(dfScript);
+    }
 
     // Twilio Conversations SDK
-    const twScript = document.createElement("script");
-    twScript.src = "https://media.twiliocdn.com/sdk/js/conversations/v2.4/twilio-conversations.min.js";
-    twScript.async = true;
-    document.head.appendChild(twScript);
+    if (!twScriptExists) {
+      const twScript = document.createElement("script");
+      twScript.src = "https://media.twiliocdn.com/sdk/js/conversations/v2.4/twilio-conversations.min.js";
+      twScript.async = true;
+      document.head.appendChild(twScript);
+    }
 
+    // Don't remove scripts on unmount since they're shared globally
+  }, []);
+
+  // Cleanup: Remove any stray df-messenger elements on unmount
+  useEffect(() => {
     return () => {
-      dfScript.parentNode?.removeChild(dfScript);
-      twScript.parentNode?.removeChild(twScript);
+      // Remove all df-messenger elements from the DOM when component unmounts
+      const dfMessengers = document.querySelectorAll('df-messenger');
+      dfMessengers.forEach((el) => {
+        try {
+          el.parentNode?.removeChild(el);
+        } catch (e) {
+          // Ignore errors if element is already removed
+        }
+      });
     };
   }, []);
 
@@ -98,6 +119,12 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
       });
       conversation.on("typingEnded", () => setTypingFrom(null));
 
+      // Hide df-messenger before opening custom panel
+      const dfMessengers = document.querySelectorAll('df-messenger');
+      dfMessengers.forEach((el) => {
+        (el as HTMLElement).style.display = 'none';
+      });
+      
       setOpen(true);
       setMessages((prev) => [...prev, { author: "System", body: "Connected. A human will join shortly." }]);
     };
@@ -128,11 +155,13 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
   };
 
   return (
-    <div className={`animated-chat-widget-container ${className}`}>
-      {/* Dialogflow Messenger (embedded) */}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
+    <div className={`animated-chat-widget-container ${open ? 'chat-panel-open' : ''} ${className}`}>
+      {/* Dialogflow Messenger (embedded) - hidden when custom panel is open */}
+      {!open && (
+        <div
+          ref={dfMessengerContainerRef}
+          dangerouslySetInnerHTML={{
+            __html: `
             <df-messenger
               location="us"
               project-id="vamsidharvennabot"
@@ -144,8 +173,9 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
               expand="false">
             </df-messenger>
           `,
-        }}
-      />
+          }}
+        />
+      )}
 
       {/* Verizon‑style panel */}
       {open && (
@@ -155,7 +185,20 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
               <span className="vz-brand-dot" aria-hidden="true"></span>
               <span className="vz-brand-text">Vamsidhar Support</span>
             </div>
-            <button className="vz-close" onClick={() => setOpen(false)} aria-label="Close chat">×</button>
+            <button 
+              className="vz-close" 
+              onClick={() => {
+                setOpen(false);
+                // Optionally show df-messenger again when panel closes (uncomment if needed)
+                // const dfMessengers = document.querySelectorAll('df-messenger');
+                // dfMessengers.forEach((el) => {
+                //   (el as HTMLElement).style.display = '';
+                // });
+              }} 
+              aria-label="Close chat"
+            >
+              ×
+            </button>
           </div>
           <div className="vz-chat-body" id="lc-body">
             {messages.map((m, i) => {
@@ -204,11 +247,19 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
         </div>
       )}
 
+      {/* Launcher button - only show when custom panel is closed and df-messenger is not visible */}
       {!open && (
         <button
           className="vz-launcher vz-dark"
           aria-label="Open live chat"
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            // Hide df-messenger before opening custom panel
+            const dfMessengers = document.querySelectorAll('df-messenger');
+            dfMessengers.forEach((el) => {
+              (el as HTMLElement).style.display = 'none';
+            });
+            setOpen(true);
+          }}
         >
           ?
         </button>
