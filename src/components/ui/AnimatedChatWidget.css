@@ -1,566 +1,106 @@
-/* Animated Chat Widget Styles */
-
-/* Position Dialogflow messenger */
-df-messenger {
-  position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  z-index: 998 !important;
-}
-
-/* Hide df-messenger when custom panel is open */
-.chat-panel-open df-messenger {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Verizon-inspired theme overrides for Dialogflow messenger (best-effort) */
-df-messenger {
-  --df-messenger-primary-color: #e60000; /* Verizon red */
-  --df-messenger-titlebar-color: #0b0b0c;
-  --df-messenger-titlebar-font-color: #ffffff;
-  --df-messenger-font-color: #e5e7eb;
-  --df-messenger-chat-border-radius: 22px;
-  --df-messenger-chat-width: 380px;
-  --df-messenger-chat-height: 520px;
-  --df-messenger-chat-background: #050505;
-  --df-messenger-chat-border: 1px solid #1f2024;
-  --df-messenger-chat-messagelist-border: 1px solid #1f2024;
-  --df-messenger-chat-padding: 18px;
-  --df-messenger-chat-overflow: auto;
-  --df-messenger-message-spacing: 14px;
-  --df-messenger-message-border-radius: 18px;
-  --df-messenger-message-group-border-radius: 0;
-  --df-messenger-message-actor-spacing: 12px;
-  --df-messenger-message-bot-group-background: transparent;
-  --df-messenger-message-bot-background: #1c1d23;
-  --df-messenger-message-bot-font-color: #e8eaee;
-  --df-messenger-message-user-group-background: transparent;
-  --df-messenger-message-user-background: #e60000;
-  --df-messenger-message-user-font-color: #ffffff;
-  --df-messenger-chip-border-radius: 999px;
-  --df-messenger-chip-border-color: #2d2e35;
-  --df-messenger-chip-background: #131418;
-  --df-messenger-chip-font-color: #e5e7eb;
-  --df-messenger-input-background: #101115;
-  --df-messenger-input-font-color: #f3f4f6;
-  --df-messenger-input-placeholder-color: #9ca3af;
-  --df-messenger-send-icon: #f3f4f6;
-  --df-messenger-button-icon-color: #f3f4f6;
-  --df-messenger-suggestion-chip-background: #131418;
-  --df-messenger-suggestion-chip-border-color: #2d2e35;
-  --df-messenger-suggestion-chip-font-color: #e5e7eb;
-}
-
-/* Custom chat icon in slot */
-.custom-chat-icon {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.custom-chat-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Revolving text container */
-.revolving-text-container {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: rotate 10s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Individual text characters */
-.revolving-text {
-  position: absolute;
-  font-size: 11px;
-  font-weight: 700;
-  color: #0d9488;
-  font-family: "Inter", "Arial", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  white-space: nowrap;
-}
-
-/* Chat icon container - centered in the widget */
-.chat-icon-container {
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #0d9488, #14b8a6, #06b6d4);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-  animation: pulse 3s infinite;
-  z-index: 2;
-  overflow: hidden;
-  border: 3px solid white;
-}
-
-/* Avatar image styling */
-.chat-avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.6);
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-  100% {
-    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* Notification dot */
-.notification-dot {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 14px;
-  height: 14px;
-  background: #ef4444;
-  border-radius: 50%;
-  border: 3px solid white;
-  animation: blink 2s infinite;
-  z-index: 3;
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  51%,
-  100% {
-    opacity: 0.3;
-    transform: scale(0.9);
-  }
-}
-
-/* Ripple effect */
-.ripple {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 64px;
-  height: 64px;
-  border: 2px solid #0d9488;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: ripple 3s infinite;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  0% {
-    width: 64px;
-    height: 64px;
-    opacity: 1;
-  }
-  100% {
-    width: 120px;
-    height: 120px;
-    opacity: 0;
-  }
-}
-
-/* Custom animated chat widget container */
+/* Dialogflow messenger host placement */
 .animated-chat-widget-container {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1000;
+  bottom: 32px;
+  right: 32px;
+  z-index: 998;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Custom animated chat widget */
-.custom-chat-widget {
+/* Dialogflow CX Messenger theme overrides */
+df-messenger {
+  --df-messenger-font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --df-messenger-titlebar-color: #050505;
+  --df-messenger-titlebar-font-color: #ffffff;
+  --df-messenger-titlebar-font-size: 16px;
+  --df-messenger-titlebar-icon-size: 22px;
+  --df-messenger-primary-color: #ff1e1e;
+  --df-messenger-chat-background: #0d0e17;
+  --df-messenger-chat-hover-background: #11121c;
+  --df-messenger-chat-border-radius: 24px;
+  --df-messenger-chat-width: 380px;
+  --df-messenger-chat-height: 520px;
+  --df-messenger-message-bot-background: #1a1b27;
+  --df-messenger-message-bot-font-color: #fdfdfd;
+  --df-messenger-message-user-background: #ff1e1e;
+  --df-messenger-message-user-font-color: #ffffff;
+  --df-messenger-message-border-radius: 18px;
+  --df-messenger-message-spacing: 12px;
+  --df-messenger-input-background: #0f1016;
+  --df-messenger-input-font-color: #fefefe;
+  --df-messenger-input-placeholder-color: #9ca3af;
+  --df-messenger-send-icon-color: transparent;
+  --df-messenger-chips-background: radial-gradient(circle at 20% 20%, #1f2136, #111221);
+  --df-messenger-chips-border-color: #2f3040;
+  --df-messenger-chips-border-radius: 999px;
+  --df-messenger-chips-padding: 8px 18px;
+  --df-messenger-chips-font-color: #ffffff;
+  --df-messenger-chips-font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --df-messenger-chips-font-size: 13px;
+  --df-messenger-chips-font-weight: 600;
+  --df-messenger-chips-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+  --df-messenger-chips-background-hover: #1c1f2f;
+  --df-messenger-chips-border-color-hover: #ff1e1e;
+  --df-messenger-chips-letter-spacing: 0.2px;
+  --df-messenger-chips-text-transform: none;
+  --df-messenger-message-group-spacing: 6px;
+  --df-messenger-message-actor-spacing: 8px;
+  --df-messenger-user-avatar-color: #ff1e1e;
+  --df-messenger-bot-avatar-color: #1f1f24;
+  --df-messenger-button-icon-color: #f8f8fb;
+  --df-messenger-chat-scrollbar-color: #2d2d34;
+  --df-messenger-card-background-color: #0f0f14;
+  --df-messenger-card-border-color: #1d1d23;
+}
+
+/* Launcher bubble styling */
+df-messenger-chat-bubble {
+  --df-messenger-chat-bubble-background: #0b0b0c;
+  --df-messenger-chat-bubble-border: 1px solid #1b1c21;
+  --df-messenger-chat-bubble-border-radius: 28px;
+  --df-messenger-chat-bubble-box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --df-messenger-chat-bubble-icon-size: 24px;
+  --df-messenger-chat-bubble-icon-color: #ffffff;
+  --df-messenger-chat-bubble-close-icon-color: #ffffff;
+  --df-messenger-chat-bubble-font-color: #ffffff;
+  --df-messenger-chat-bubble-subtitle-font-color: #cfd2dd;
+  --df-messenger-chat-bubble-padding: 14px 18px;
+  --df-messenger-chat-bubble-width: 72px;
+  --df-messenger-chat-bubble-height: 72px;
+}
+
+/* Decorative dot in the header title to mimic Verizon-style indicator */
+df-messenger::part(titlebar) {
   position: relative;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.custom-chat-widget:hover {
-  transform: scale(1.1);
-}
-
-/* Revolving text container - positioned to center the text around the icon */
-.revolving-text-container {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: rotate 10s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Individual text characters */
-.revolving-text {
-  position: absolute;
-  font-size: 11px;
-  font-weight: 700;
-  color: #0d9488;
-  font-family: "Inter", "Arial", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  white-space: nowrap;
-}
-
-/* Chat icon container - centered in the widget */
-.chat-icon-container {
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #0d9488, #14b8a6, #06b6d4);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-  animation: pulse 3s infinite;
-  z-index: 2;
-  overflow: hidden;
-  border: 3px solid white;
-}
-
-/* Avatar image styling */
-.chat-avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.6);
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-  100% {
-    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* Chat icon SVG (keeping as backup) */
-.chat-icon {
-  width: 32px;
-  height: 32px;
-  fill: white;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* Notification dot */
-.notification-dot {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 14px;
-  height: 14px;
-  background: #ef4444;
-  border-radius: 50%;
-  border: 3px solid white;
-  animation: blink 2s infinite;
-  z-index: 3;
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  51%,
-  100% {
-    opacity: 0.3;
-    transform: scale(0.9);
-  }
-}
-
-/* Ripple effect */
-.ripple {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 64px;
-  height: 64px;
-  border: 2px solid #0d9488;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: ripple 3s infinite;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  0% {
-    width: 64px;
-    height: 64px;
-    opacity: 1;
-  }
-  100% {
-    width: 120px;
-    height: 120px;
-    opacity: 0;
-  }
-}
-
-/* Close chat button */
-.chat-close-button {
-  position: fixed;
-  bottom: 630px;
-  right: 430px;
-  width: 32px;
-  height: 32px;
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-  transition: all 0.2s ease;
-  z-index: 1001;
-}
-
-.chat-close-button:hover {
-  background: #dc2626;
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-}
-
-.chat-close-button svg {
-  width: 16px;
-  height: 16px;
-}
-
-/* Chat opened state - make widget slightly smaller and less prominent */
-.chat-opened .custom-chat-widget {
-  transform: scale(0.85);
-  opacity: 0.8;
-}
-
-.chat-opened .custom-chat-widget:hover {
-  transform: scale(0.9);
-  opacity: 1;
-}
-
-/* Hide the older inline-styled panel in favor of Verizon-styled one */
-.lc-panel { display: none !important; }
-
-/* Verizon-styled live chat panel */
-.vz-dark {
-  --vz-red: #e60000;
-  --vz-black: #0b0b0c;
-  --vz-text: #e5e7eb;
-  --vz-muted: #9ca3af;
-  --vz-border: #26272b;
-  --vz-bg: #0b0b0c;
-  --vz-surface: #111214;
-  --vz-bubble: #1a1b1f;
-}
-
-.vz-chat-panel {
-  position: fixed;
-  right: 24px;
-  bottom: 96px;
-  width: 380px;
-  height: 520px;
-  background: var(--vz-surface, var(--vz-bg));
-  border: 1px solid var(--vz-border);
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-  display: flex;
-  flex-direction: column;
-  z-index: 1001;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji';
-}
-
-.vz-chat-header {
-  background: var(--vz-black);
-  color: #fff;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 16px 16px 0 0;
-}
-
-.vz-brand { display: flex; align-items: center; gap: 10px; }
-.vz-brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--vz-red); display: inline-block; }
-.vz-brand-text { font-weight: 700; letter-spacing: 0.2px; }
-
-.vz-close {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.vz-chat-body {
-  flex: 1;
-  overflow: auto;
-  padding: 14px;
-  background: var(--vz-surface, var(--vz-bg));
-}
-
-.vz-msg { margin: 10px 0; display: flex; }
-.vz-msg--mine { justify-content: flex-end; }
-.vz-msg--agent { justify-content: flex-start; }
-.vz-bubble {
-  background: var(--vz-bubble);
-  color: var(--vz-text);
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid var(--vz-border);
-  max-width: 80%;
-  position: relative;
-}
-.vz-msg--agent .vz-bubble,
-.vz-msg--mine .vz-bubble {
-  border-radius: 8px;
-}
-.vz-bubble--mine {
-  background: var(--vz-red);
-  color: #fff;
-  border-color: var(--vz-red);
-}
-.vz-meta { font-size: 11px; color: var(--vz-muted); margin-bottom: 4px; font-weight: 600; }
-.vz-text { font-size: 14px; line-height: 1.35; }
-
-.vz-chat-input {
-  display: flex;
-  gap: 10px;
-  padding: 12px;
-  border-top: 1px solid var(--vz-border);
-  background: var(--vz-surface, #fff);
-  border-radius: 0 0 16px 16px;
-}
-.vz-chat-input input {
-  flex: 1;
-  padding: 10px 12px;
-  border: 1px solid var(--vz-border);
-  border-radius: 10px;
-  outline: none;
-  background: var(--vz-bg);
-  color: var(--vz-text);
-}
-.vz-chat-input input::placeholder { color: var(--vz-muted); }
-.vz-send {
-  padding: 10px 14px;
-  border: none;
-  border-radius: 10px;
-  background: var(--vz-red);
-  color: #fff;
   font-weight: 600;
-  cursor: pointer;
-}
-.vz-send:hover { background: #cc0000; }
-
-/* Suggestions chips */
-.vz-suggestions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 8px 12px 0 12px;
-  border-top: 1px dashed var(--vz-border);
-}
-.vz-chip {
-  padding: 6px 10px;
-  border: 1px solid var(--vz-border);
-  border-radius: 999px;
-  background: var(--vz-surface, #fff);
-  color: var(--vz-text);
-  font-size: 12px;
-  cursor: pointer;
-}
-.vz-chip:hover { border-color: var(--vz-red); color: var(--vz-red); }
-
-/* Typing indicator */
-.vz-typing { display: flex; gap: 4px; padding: 10px 2px; }
-.vz-typing-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--vz-muted);
-  animation: vz-bounce 1.2s infinite ease-in-out;
-}
-.vz-typing-dot:nth-child(2) { animation-delay: 0.15s; }
-.vz-typing-dot:nth-child(3) { animation-delay: 0.3s; }
-@keyframes vz-bounce {
-  0%, 80%, 100% { transform: translateY(0); opacity: 0.6; }
-  40% { transform: translateY(-4px); opacity: 1; }
+  letter-spacing: 0.2px;
 }
 
-/* Launcher button */
-.vz-launcher {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 56px;
-  height: 56px;
+df-messenger::part(titlebar)::before {
+  content: "";
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: none;
-  background: var(--vz-red);
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 12px 30px rgba(230,0,0,0.35);
+  background: #ff1e1e;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
 }
-.vz-launcher:hover { background: #cc0000; }
 
-/* Dialogflow dark variables (best-effort) */
+/* Rounded input to match reference UI */
+df-messenger::part(input-container) {
+  border-radius: 16px;
+  border: 1px solid #1c1c22;
+  background: #141624;
+}
+
+df-messenger::part(input-container):focus-within {
+  border-color: #ff1e1e;
+}
+
+/* Stronger focus outlines for accessibility */
+df-messenger::part(send-button):focus-visible,
+df-messenger::part(message-list):focus-visible {
+  outline: 2px solid #ff1e1e;
+  outline-offset: 2px;
+}
