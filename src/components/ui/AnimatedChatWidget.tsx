@@ -15,16 +15,17 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        "project-id": string;
-        "agent-id": string;
-        location: string;
-        "language-code": string;
-        "chat-title": string;
-        "chat-subtitle"?: string;
-        "placeholder-text"?: string;
-        "bot-writing-text"?: string;
-        intent?: string;
-      };
+      "project-id": string;
+      "agent-id": string;
+      location: string;
+      "language-code": string;
+      "chat-title": string;
+      "chat-title-icon"?: string;
+      "chat-subtitle"?: string;
+      "placeholder-text"?: string;
+      "bot-writing-text"?: string;
+      intent?: string;
+    };
       "df-messenger-chat-bubble": React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
@@ -70,7 +71,7 @@ const applySendButtonTheme = (host: DFMessengerElement | null) => {
       }
 
       #send-icon-button {
-        background: linear-gradient(135deg, #ff3b30, #c30000) !important;
+        background: linear-gradient(135deg, #0d3b66, #22d3ee) !important;
         border-radius: 20px !important;
         width: 118px !important;
         height: 46px !important;
@@ -78,7 +79,7 @@ const applySendButtonTheme = (host: DFMessengerElement | null) => {
         align-items: center;
         justify-content: center;
         padding: 0 !important;
-        box-shadow: 0 18px 32px rgba(255, 59, 48, 0.35);
+        box-shadow: 0 18px 32px rgba(34, 211, 238, 0.35);
         transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
         margin-left: 4px;
       }
@@ -107,15 +108,110 @@ const applySendButtonTheme = (host: DFMessengerElement | null) => {
 
       #send-icon-button.active:hover {
         transform: translateY(-1px);
-        background: #ff4f44 !important;
+        background: linear-gradient(135deg, #1f6c8c, #c75cff) !important;
       }
 
       #send-icon-button.active:focus-visible {
-        outline: 2px solid rgba(255, 59, 48, 0.5);
+        outline: 2px solid rgba(34, 211, 238, 0.5);
         outline-offset: 3px;
       }
     `
   );
+};
+
+const ASSISTANT_TITLE = "Vamsidhar’s Assistant 🤖";
+const ASSISTANT_SUBTITLE = "AI-Powered Portfolio Guide";
+
+const applyHeaderAvatarTheme = (host: DFMessengerElement | null) => {
+  const shadowRoot = host?.shadowRoot;
+  if (!shadowRoot) return;
+
+  const chat = shadowRoot.querySelector("df-messenger-chat") as
+    | DFMessengerElement
+    | null;
+  const chatShadow = chat?.shadowRoot;
+  if (!chatShadow) return;
+
+  ensureShadowStyle(
+    chatShadow,
+    "df-assistant-header-avatar",
+    `
+      .assistant-title-avatar {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        padding: 2px !important;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0)) #0d3b66;
+        box-shadow:
+          0 0 0 2px rgba(7, 20, 35, 0.8),
+          0 10px 25px rgba(5, 16, 27, 0.55),
+          0 0 25px rgba(34, 211, 238, 0.55);
+        object-fit: cover;
+      }
+
+    `
+  );
+
+  const avatar = chatShadow.querySelector(
+    `img[src="${AVATAR_IMAGE}"]`
+  ) as HTMLImageElement | null;
+
+  if (avatar && !avatar.classList.contains("assistant-title-avatar")) {
+    avatar.classList.add("assistant-title-avatar");
+    avatar.setAttribute("alt", "Vamsidhar avatar");
+  }
+
+  const titlebar = chatShadow.querySelector(
+    "df-messenger-titlebar"
+  ) as DFMessengerElement | null;
+  const titlebarShadow = titlebar?.shadowRoot;
+  if (!titlebarShadow) return;
+
+  ensureShadowStyle(
+    titlebarShadow,
+    "df-assistant-title-styles",
+    `
+      #titlebar-title .assistant-title {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.01em !important;
+      }
+
+      #titlebar-title .assistant-subtitle {
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #8ad7fb !important;
+        letter-spacing: 0.02em !important;
+        margin-top: 1px !important;
+      }
+    `
+  );
+
+  const titleEl = titlebarShadow.querySelector(
+    "#titlebar-title h2"
+  ) as HTMLElement | null;
+  if (titleEl) {
+    titleEl.textContent = ASSISTANT_TITLE;
+    titleEl.classList.add("assistant-title");
+  }
+
+  const titleText = titlebarShadow.querySelector(".title-text");
+  if (!titleText) return;
+
+  let subtitleEl = titlebarShadow.querySelector(
+    ".assistant-subtitle"
+  ) as HTMLElement | null;
+  if (!subtitleEl) {
+    subtitleEl =
+      (titlebarShadow.querySelector("#titlebar-title h3") as HTMLElement | null) ||
+      document.createElement("h3");
+    subtitleEl.classList.add("assistant-subtitle");
+    subtitleEl.setAttribute("tabindex", "-1");
+    if (!subtitleEl.isConnected) {
+      titleText.appendChild(subtitleEl);
+    }
+  }
+  subtitleEl.textContent = ASSISTANT_SUBTITLE;
 };
 
 const AVATAR_IMAGE = "https://storage.googleapis.com/vamsidharvennabot/picture/dddd.png";
@@ -151,7 +247,7 @@ const applyBubbleTheme = (): boolean => {
         background-repeat: no-repeat;
         background-size: contain;
         animation: bubble-text-spin 10s linear infinite;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 220 220'%3E%3Cdefs%3E%3Cpath id='circlePath' d='M110,110 m-95,0 a95,95 0 1,1 190,0 a95,95 0 1,1 -190,0'/%3E%3C/defs%3E%3Ctext fill='%23ff3b30' font-size='14' font-weight='700' letter-spacing='6'%3E%3CtextPath xlink:href='%23circlePath' startOffset='0'%3ECHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ CHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ CHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ %3C/textPath%3E%3C/text%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 220 220'%3E%3Cdefs%3E%3Cpath id='circlePath' d='M110,110 m-95,0 a95,95 0 1,1 190,0 a95,95 0 1,1 -190,0'/%3E%3C/defs%3E%3Ctext fill='%2322d3ee' font-size='14' font-weight='700' letter-spacing='6'%3E%3CtextPath xlink:href='%23circlePath' startOffset='0'%3ECHAT WITH ME %C2%B7 VAMSIDHAR %C2%B7 CHAT WITH ME %C2%B7 VAMSIDHAR %C2%B7%3C/textPath%3E%3C/text%3E%3C/svg%3E");
       }
 
       .chat-bubble-default-wrapper {
@@ -305,6 +401,7 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
     const applyCustomDecorators = () => {
       applySendButtonTheme(node);
       applyBubbleTheme();
+      applyHeaderAvatarTheme(node);
     };
 
     const startObserver = () => {
@@ -367,13 +464,14 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
         project-id="vamsidharvennabot"
         agent-id="3b7c3a47-2227-4ae0-8977-480faefb189e"
         language-code="en"
-        chat-title="Vamsidhar Support"
-        chat-subtitle=""
+        chat-title={ASSISTANT_TITLE}
+        chat-subtitle={ASSISTANT_SUBTITLE}
+        chat-title-icon={AVATAR_IMAGE}
         placeholder-text="Message..."
         bot-writing-text="Vamsidhar is typing..."
         intent="WELCOME"
       >
-        <df-messenger-chat-bubble chat-title="Vamsidhar Support"></df-messenger-chat-bubble>
+        <df-messenger-chat-bubble chat-title={ASSISTANT_TITLE}></df-messenger-chat-bubble>
       </df-messenger>
     </div>
   );
