@@ -41,11 +41,12 @@ const DF_SCRIPT_SRC =
 type DFMessengerElement = HTMLElement & { shadowRoot?: ShadowRoot | null };
 
 const ensureShadowStyle = (root: ShadowRoot, id: string, css: string) => {
-  if (root.getElementById(id)) return;
+  if (root.getElementById(id)) return false;
   const style = document.createElement("style");
   style.id = id;
   style.textContent = css;
   root.appendChild(style);
+  return true;
 };
 
 const applySendButtonTheme = (host: DFMessengerElement | null) => {
@@ -117,10 +118,122 @@ const applySendButtonTheme = (host: DFMessengerElement | null) => {
   );
 };
 
+const AVATAR_IMAGE = "https://storage.googleapis.com/vamsidharvennabot/picture/dddd.png";
+
+const applyBubbleTheme = (): boolean => {
+  const bubble = document.querySelector(
+    "df-messenger-chat-bubble"
+  ) as DFMessengerElement | null;
+  const bubbleShadow = bubble?.shadowRoot;
+  if (!bubbleShadow) return false;
+
+  ensureShadowStyle(
+    bubbleShadow,
+    "df-custom-chat-bubble",
+    `
+      :host {
+        --bubble-size: 96px;
+        position: fixed !important;
+        bottom: 24px !important;
+        right: 32px !important;
+        z-index: 999;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+        height: var(--chat-ring-size);
+      }
+
+      :host::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: bubble-text-spin 10s linear infinite;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 220 220'%3E%3Cdefs%3E%3Cpath id='circlePath' d='M110,110 m-95,0 a95,95 0 1,1 190,0 a95,95 0 1,1 -190,0'/%3E%3C/defs%3E%3Ctext fill='%23ff3b30' font-size='14' font-weight='700' letter-spacing='6'%3E%3CtextPath xlink:href='%23circlePath' startOffset='0'%3ECHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ CHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ CHAT WITH ME ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ %3C/textPath%3E%3C/text%3E%3C/svg%3E");
+      }
+
+      .chat-bubble-default-wrapper {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: var(--bubble-size) !important;
+        height: var(--bubble-size) !important;
+      }
+
+      .container {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .bubble {
+        width: var(--bubble-size) !important;
+        height: var(--bubble-size) !important;
+        border-radius: 50% !important;
+        border: none !important;
+        padding: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bubble .icon,
+      .bubble .icon svg,
+      .bubble .close-icon {
+        display: none !important;
+      }
+
+      .bubble::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background-image: url("${AVATAR_IMAGE}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+      }
+
+
+      @keyframes bubble-ring-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes bubble-text-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    `
+  );
+
+  return true;
+};
+
 const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" }) => {
   const [ready, setReady] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(true);
   const messengerRef = useRef<DFMessengerElement | null>(null);
+
+  const dismissPrompt = () => {
+    setShowPrompt(false);
+  };
 
   useEffect(() => {
     const alreadyDefined = window.customElements?.get("df-messenger");
@@ -162,13 +275,37 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
 
   useEffect(() => {
     if (!ready) return;
+    const bubble = document.querySelector("df-messenger-chat-bubble") as HTMLElement | null;
+    if (!bubble) return;
+    if (expanded) {
+      bubble.setAttribute("data-hidden", "true");
+      dismissPrompt();
+    } else {
+      bubble.removeAttribute("data-hidden");
+    }
+  }, [ready, expanded]);
+
+  useEffect(() => {
+    if (!ready || !showPrompt) return;
+    const bubble = document.querySelector("df-messenger-chat-bubble");
+    const handleClick = () => dismissPrompt();
+    bubble?.addEventListener("click", handleClick);
+    return () => bubble?.removeEventListener("click", handleClick);
+  }, [ready, showPrompt]);
+
+  useEffect(() => {
+    if (!ready) return;
     const node = messengerRef.current;
     if (!node) return;
 
     let observer: MutationObserver | null = null;
     let retryTimer: number | null = null;
+    let bubbleTimer: number | null = null;
 
-    const applyCustomDecorators = () => applySendButtonTheme(node);
+    const applyCustomDecorators = () => {
+      applySendButtonTheme(node);
+      applyBubbleTheme();
+    };
 
     const startObserver = () => {
       const root = node.shadowRoot;
@@ -179,6 +316,13 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
     };
 
     applyCustomDecorators();
+
+    bubbleTimer = window.setInterval(() => {
+      if (applyBubbleTheme() && bubbleTimer) {
+        window.clearInterval(bubbleTimer);
+        bubbleTimer = null;
+      }
+    }, 250);
 
     if (!startObserver()) {
       retryTimer = window.setInterval(() => {
@@ -195,6 +339,9 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
       if (retryTimer) {
         window.clearInterval(retryTimer);
       }
+      if (bubbleTimer) {
+        window.clearInterval(bubbleTimer);
+      }
     };
   }, [ready]);
 
@@ -202,6 +349,18 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
 
   return (
     <div className={`chat-shell ${expanded ? "chat-shell--open" : ""} ${className}`}>
+      {showPrompt && (
+        <div className="chat-prompt" role="status">
+          <span>Need assistance? I&apos;m here to chat.</span>
+          <button
+            type="button"
+            aria-label="Dismiss chat prompt"
+            onClick={dismissPrompt}
+          >
+            &times;
+          </button>
+        </div>
+      )}
       <df-messenger
         ref={messengerRef}
         location="us"
