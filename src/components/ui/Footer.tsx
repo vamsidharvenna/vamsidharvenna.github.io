@@ -11,10 +11,10 @@ const Footer: React.FC = () =>
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div className="text-center md:text-left">
                         <p className="text-gray-600 text-sm">
-                            © {currentYear} {portfolioConfig.personalInfo.name}. All rights reserved.
+                            © {currentYear} Vamsidhar Reddy Venna. All rights reserved.
                         </p>
                         <p className="text-gray-500 text-xs mt-1">
-                            Built with React, TypeScript, and Tailwind CSS
+                            Designed &amp; built with React, TypeScript, Tailwind CSS, and a lot of coffee ☕.
                         </p>
                     </div>
 
@@ -22,7 +22,7 @@ const Footer: React.FC = () =>
                         <span className="text-gray-500 text-xs">
                             {portfolioConfig.personalInfo.location}
                         </span>
-                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-400">&middot;</span>
                         <a
                             href={`mailto:${ portfolioConfig.personalInfo.email }`}
                             className="text-gray-500 hover:text-teal-600 text-xs transition-colors"

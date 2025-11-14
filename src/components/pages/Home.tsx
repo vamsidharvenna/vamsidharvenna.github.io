@@ -4,6 +4,21 @@ import AnimatedChatWidget from '../ui/AnimatedChatWidget';
 import Icon from '../ui/Icon';
 import Navigation from '../ui/Navigation';
 
+const hoverColors: Record<string, string> = {
+    github: 'hover:text-slate-900',
+    linkedin: 'hover:text-sky-600',
+    whatsapp: 'hover:text-green-500',
+    email: 'hover:text-rose-500',
+    mail: 'hover:text-rose-500',
+};
+
+const availability = [
+    { icon: '✅', color: 'text-cyan-500', label: 'Open to Full-time' },
+    { icon: '📄', color: 'text-indigo-500', label: 'Open to Contract roles' },
+    { icon: '🌐', color: 'text-emerald-500', label: 'Open to Remote work' },
+    { icon: '📍', color: 'text-rose-500', label: 'Open to Onsite (relocation flexible)' },
+];
+
 const Home: React.FC = () =>
 {
     return (
@@ -12,7 +27,7 @@ const Home: React.FC = () =>
 
             {/* Fixed Left Sidebar */}
             <div className="fixed left-0 top-16 w-48 h-full bg-gradient-to-b from-white via-slate-50 to-slate-100/70 border-r border-slate-200/70 z-10 overflow-y-auto">
-                <div className="px-6 py-10 space-y-6">
+                <div className="px-5 py-10 space-y-6">
                     <div className="bg-white/95 backdrop-blur rounded-2xl border border-white/70 shadow-[0_25px_60px_rgba(15,35,56,0.08)] p-5 space-y-4">
                         <h2 className="text-lg font-semibold text-slate-900 tracking-wide mb-4">Connect</h2>
 
@@ -24,9 +39,9 @@ const Home: React.FC = () =>
                                     href={social.url}
                                     target={social.platform !== "Email" ? "_blank" : undefined}
                                     rel={social.platform !== "Email" ? "noopener noreferrer" : undefined}
-                                    className={`flex items-center space-x-3 text-slate-600 hover:text-cyan-500 transition-colors duration-200 ${
+                                    className={`flex items-center space-x-3 text-slate-600 transition-colors duration-150 ${
                                         index !== portfolioConfig.socialLinks.length - 1 ? 'pb-2 border-b border-slate-100/70' : ''
-                                    }`}
+                                    } ${hoverColors[social.icon as keyof typeof hoverColors] ?? 'hover:text-cyan-500'}`}
                                 >
                                     <Icon name={social.icon} className="w-4 h-4 text-teal-500" />
                                     <span className="text-sm font-medium">{social.platform}</span>
@@ -51,33 +66,24 @@ const Home: React.FC = () =>
                         </div>
                     </div>
 
+                    <div className="border-t border-slate-200/70 mx-1" />
+
                     <div className="rounded-2xl border border-white/60 bg-gradient-to-br from-slate-50/60 to-slate-100/80 shadow-inner p-5">
-                            <div className="border-t border-slate-200/80 my-4" />
-                            <p className="text-xs tracking-widest font-semibold text-slate-500 uppercase mb-3">Availability</p>
-                        <ul className="space-y-2.5 text-sm font-medium text-slate-600 leading-[1.35rem]">
-                            <li className="flex items-center space-x-2">
-                                <span role="img" aria-hidden="true" className="text-cyan-500">💠</span>
-                                <span>Open to Full-time</span>
-                            </li>
-                            <li className="flex items-center space-x-2">
-                                <span role="img" aria-hidden="true" className="text-indigo-500">📄</span>
-                                <span>Open to Contract roles</span>
-                            </li>
-                            <li className="flex items-center space-x-2">
-                                <span role="img" aria-hidden="true" className="text-emerald-500">🌐</span>
-                                <span>Open to Remote work</span>
-                            </li>
-                            <li className="flex items-center space-x-2">
-                                <span role="img" aria-hidden="true" className="text-rose-500">📍</span>
-                                <span>Open to Onsite (relocation flexible)</span>
-                            </li>
+                        <p className="text-xs tracking-widest font-semibold text-slate-500 uppercase mb-3">Availability</p>
+                        <ul className="space-y-3 text-sm font-medium text-slate-600 leading-[1.35rem]">
+                            {availability.map(({ icon, color, label }) => (
+                                <li key={label} className="flex items-center space-x-3">
+                                    <span className={`${color} text-base`}>{icon}</span>
+                                    <span>{label}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
 
             {/* Main Content Area */}
-            <div className="ml-40 px-8 py-8">
+            <div className="ml-48 px-8 py-8">
                 <div className="max-w-none">
                     <div className="max-w-4xl mx-auto">
                         <div className="relative">
@@ -86,31 +92,31 @@ const Home: React.FC = () =>
                                 aria-hidden="true"
                             />
                             <div className="relative bg-white/95 backdrop-blur-sm rounded-[28px] border border-white/60 shadow-[0_35px_90px_rgba(13,59,102,0.22)] p-10">
-                            <div className="text-center mb-6">
-                                <div className="w-60 h-60 mx-auto mb-4">
-                                    <img
-                                        src={portfolioConfig.personalInfo.avatar}
-                                        alt={portfolioConfig.personalInfo.name}
-                                        className="w-full h-full rounded-full object-cover border-4 border-gray-200"
-                                    />
-                                </div>
-                                <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                                    {portfolioConfig.personalInfo.name}
-                                </h1>
-                                <p className="text-xl text-gray-600 mb-6">
-                                    {portfolioConfig.personalInfo.title}
-                                </p>
-                                <p className="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto mb-6">
-                                    {portfolioConfig.personalInfo.bio}
-                                </p>
-                                <div className="flex items-center justify-center space-x-3 text-gray-600 mt-4">
-                                    <Icon name='location' className="w-5 h-5" />
-                                    <p className="text-xl text-gray-600">
-                                        <span>{portfolioConfig.personalInfo.location}</span>
+                                <div className="text-center mb-6">
+                                    <div className="w-60 h-60 mx-auto mb-4">
+                                        <img
+                                            src={portfolioConfig.personalInfo.avatar}
+                                            alt={portfolioConfig.personalInfo.name}
+                                            className="w-full h-full rounded-full object-cover border-4 border-gray-200"
+                                        />
+                                    </div>
+                                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                                        {portfolioConfig.personalInfo.name}
+                                    </h1>
+                                    <p className="text-xl text-gray-600 mb-6">
+                                        {portfolioConfig.personalInfo.title}
                                     </p>
+                                    <p className="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto mb-6">
+                                        {portfolioConfig.personalInfo.bio}
+                                    </p>
+                                    <div className="flex items-center justify-center space-x-3 text-gray-600 mt-4">
+                                        <Icon name='location' className="w-5 h-5" />
+                                        <p className="text-xl text-gray-600">
+                                            <span>{portfolioConfig.personalInfo.location}</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
