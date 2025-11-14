@@ -12,7 +12,12 @@ const About: React.FC = () =>
 
             {/* Main Content */}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="bg-white rounded-lg shadow-sm p-8">
+                <div className="relative">
+                    <div
+                        className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-teal-100/70 via-white to-sky-100/60 blur-3xl opacity-70 pointer-events-none"
+                        aria-hidden="true"
+                    />
+                    <div className="relative bg-white/95 backdrop-blur-sm rounded-[28px] border border-white/60 shadow-[0_35px_90px_rgba(13,59,102,0.18)] p-8">
                     <div className="text-center mb-8">
                         <div className="w-32 h-32 mx-auto mb-6">
                             <img
@@ -113,6 +118,7 @@ const About: React.FC = () =>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
