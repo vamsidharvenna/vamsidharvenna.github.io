@@ -325,6 +325,9 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
   const [ready, setReady] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [showPrompt, setShowPrompt] = useState(true);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth <= 640
+  );
   const messengerRef = useRef<DFMessengerElement | null>(null);
 
   const dismissPrompt = () => {
@@ -353,6 +356,12 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
 
     script.addEventListener("load", handleLoaded);
     return () => script?.removeEventListener("load", handleLoaded);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -444,8 +453,35 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
 
   if (!ready) return null;
 
+  const mobileShellStyle: React.CSSProperties | undefined =
+    isMobile && expanded
+      ? {
+          width: "min(360px, calc(100vw - 32px))",
+          left: "50%",
+          right: "auto",
+          transform: "translateX(-50%)",
+          bottom: 18,
+        }
+      : isMobile
+      ? {
+          right: 24,
+          left: "auto",
+          transform: "none",
+          bottom: 16,
+        }
+      : undefined;
+
+  const mobileMessengerStyle: React.CSSProperties | undefined = isMobile
+    ? ({
+        "--df-messenger-chat-window-width": "min(360px, calc(100vw - 32px))",
+        "--df-messenger-chat-window-height": "min(520px, calc(65vh))",
+        "--df-messenger-chat-window-offset": "0px",
+        "--df-messenger-chat-border-radius": "24px",
+      } as React.CSSProperties)
+    : undefined;
+
   return (
-    <div className={`chat-shell ${expanded ? "chat-shell--open" : ""} ${className}`}>
+    <div className={`chat-shell ${expanded ? "chat-shell--open" : ""} ${className}`} style={mobileShellStyle}>
       {showPrompt && (
         <div className="chat-prompt" role="status">
           <span>Need assistance? I&apos;m here to chat.</span>
@@ -460,6 +496,7 @@ const AnimatedChatWidget: React.FC<AnimatedChatWidgetProps> = ({ className = "" 
       )}
       <df-messenger
         ref={messengerRef}
+        style={mobileMessengerStyle}
         location="us"
         project-id="vamsidharvennabot"
         agent-id="3b7c3a47-2227-4ae0-8977-480faefb189e"

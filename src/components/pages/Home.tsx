@@ -26,8 +26,8 @@ const Home: React.FC = () =>
             <Navigation />
 
             {/* Fixed Left Sidebar */}
-            <div className="fixed left-0 top-16 w-48 h-full bg-gradient-to-b from-white via-slate-50 to-slate-100/70 border-r border-slate-200/70 z-10 overflow-y-auto">
-                <div className="px-5 py-10 space-y-6">
+            <div className="w-full bg-gradient-to-b from-white via-slate-50 to-slate-100/70 border-b border-slate-200/50 lg:border-b-0 lg:border-r lg:border-slate-200/70 lg:fixed lg:left-0 lg:top-16 lg:h-full lg:w-48 lg:z-10 lg:overflow-y-auto">
+                <div className="px-5 py-8 space-y-6">
                     <div className="bg-white/95 backdrop-blur rounded-2xl border border-white/70 shadow-[0_25px_60px_rgba(15,35,56,0.08)] p-5 space-y-4">
                         <h2 className="text-lg font-semibold text-slate-900 tracking-wide mb-4">Connect</h2>
 
@@ -83,7 +83,7 @@ const Home: React.FC = () =>
             </div>
 
             {/* Main Content Area */}
-            <div className="ml-48 px-8 py-8">
+            <div className="px-4 sm:px-6 lg:px-8 py-8 mt-6 lg:mt-0 lg:ml-48">
                 <div className="max-w-none">
                     <div className="max-w-4xl mx-auto">
                         <div className="relative">

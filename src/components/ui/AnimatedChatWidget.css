@@ -161,3 +161,32 @@ df-messenger[expanded] df-messenger-chat-bubble {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 640px) {
+  .chat-shell {
+    bottom: 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(92vw, 360px);
+  }
+
+  .chat-shell.chat-shell--open {
+    bottom: 18px;
+  }
+
+  df-messenger {
+    --df-messenger-chat-window-width: 100%;
+    --df-messenger-chat-window-height: min(65vh, 520px);
+    --df-messenger-chat-window-offset: 0px;
+    --df-messenger-chat-border-radius: 24px;
+  }
+
+  .chat-prompt {
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+    bottom: calc(100% + 12px);
+    max-width: min(88vw, 320px);
+  }
+}

@@ -101,7 +101,7 @@ const Certifications: React.FC = () =>
             <Navigation />
 
             {/* Main Content */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-6 lg:mt-8">
                 <div className="relative">
                     <div
                         className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-teal-100/60 via-white to-sky-100/50 blur-3xl opacity-70 pointer-events-none"

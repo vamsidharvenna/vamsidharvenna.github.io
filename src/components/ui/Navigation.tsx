@@ -19,25 +19,21 @@ const Navigation: React.FC = () =>
 
     return (
         <header className="bg-white/95 backdrop-blur border-b border-slate-100 shadow-[0_8px_30px_rgba(15,35,56,0.06)]">
-            <div className="flex justify-between items-center py-4 w-full">
-                <div className="flex items-center pl-8">
-                    <Link to="/" className="text-xl font-bold text-gray-900 hover:text-cyan-500 transition-colors">
-                        Home
-                    </Link>
-                </div>
-                <div className="flex items-center pr-6">
-                    <nav className="flex space-x-8">
-                        {portfolioConfig.navigation.map( ( item ) => (
-                            <Link
-                                key={item}
-                                to={item.toLowerCase() === 'resume' ? '/resume' : `/${ item.toLowerCase() }`}
-                                className={getNavClass( item.toLowerCase() )}
-                            >
-                                {item}
-                            </Link>
-                        ) )}
-                    </nav>
-                </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between py-4 px-4 sm:px-8">
+                <Link to="/" className="text-xl font-bold text-gray-900 hover:text-cyan-500 transition-colors">
+                    Home
+                </Link>
+                <nav className="flex flex-wrap gap-x-6 gap-y-2 justify-start sm:justify-end">
+                    {portfolioConfig.navigation.map( ( item ) => (
+                        <Link
+                            key={item}
+                            to={item.toLowerCase() === 'resume' ? '/resume' : `/${ item.toLowerCase() }`}
+                            className={getNavClass( item.toLowerCase() )}
+                        >
+                            {item}
+                        </Link>
+                    ) )}
+                </nav>
             </div>
         </header>
     );
