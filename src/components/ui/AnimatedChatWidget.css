@@ -183,10 +183,23 @@ df-messenger[expanded] df-messenger-chat-bubble {
   }
 
   .chat-prompt {
-    right: 50%;
-    left: auto;
-    transform: translateX(50%);
-    bottom: calc(100% + 12px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: calc(100% + 10px);
     max-width: min(88vw, 320px);
+    padding: 20px 56px 18px 24px;
+  }
+
+  .chat-prompt button {
+    top: -12px;
+    left: 12px;
+    right: auto;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(15, 35, 56, 0.15);
+    font-size: 18px;
   }
 }
