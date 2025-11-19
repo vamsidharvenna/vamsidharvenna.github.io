@@ -253,14 +253,34 @@
 }
 
 .cw-banner-return {
-  border: none;
-  background: transparent;
-  color: #8ad7fb;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 238, 0.6);
+  padding: 4px 11px;
+  background: rgba(4, 17, 31, 0.95);
+  color: #e0faff;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+  text-decoration: none;
+  transition:
+    background-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+.cw-banner-return:hover {
+  background: rgba(9, 36, 61, 0.98);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+  transform: translateY(-0.5px);
+}
+
+.cw-banner-return:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
 }
 
 .cw-shell--live .cw-message,

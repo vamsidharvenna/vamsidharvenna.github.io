@@ -366,7 +366,7 @@ const CustomChatWidget: React.FC<CustomChatWidgetProps> = ({
         onClick={toggleWidget}
       />
 
-      {isOpen && (
+          {isOpen && (
         <div className={`cw-shell ${liveChatActive ? "cw-shell--live" : ""}`}>
           <div className="cw-header">
             <div>
@@ -399,7 +399,7 @@ const CustomChatWidget: React.FC<CustomChatWidgetProps> = ({
               <span className="cw-banner-dot" />
               <span className="cw-banner-text">
                 You&apos;re now connected to Vamsidhar Venna in live chat.
-                Messages here are paused while the live chat is active.
+                Bot replies are paused while live chat is active.
               </span>
               <button
                 type="button"
@@ -412,7 +412,7 @@ const CustomChatWidget: React.FC<CustomChatWidgetProps> = ({
                   );
                 }}
               >
-                ← Return to assistant
+                ← Back to AI Assistant
               </button>
             </div>
           )}
@@ -606,4 +606,16 @@ const CustomChatWidget: React.FC<CustomChatWidgetProps> = ({
 };
 
 export default CustomChatWidget;
+
+
+
+
+
+
+
+
+
+
+
+
 
