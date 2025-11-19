@@ -1,9 +1,9 @@
-import React from 'react';
-import { portfolioConfig } from '../../config/portfolio';
-import AnimatedChatWidget from '../ui/AnimatedChatWidget';
-import Footer from '../ui/Footer';
-import Icon from '../ui/Icon';
-import Navigation from '../ui/Navigation';
+import React from "react";
+import { portfolioConfig } from "../../config/portfolio";
+import CustomChatWidget from "../ui/CustomChatWidget";
+import Footer from "../ui/Footer";
+import Icon from "../ui/Icon";
+import Navigation from "../ui/Navigation";
 
 const Projects: React.FC = () =>
 {
@@ -131,7 +131,7 @@ const Projects: React.FC = () =>
                     </div>
                 </div>
             </div>
-            <AnimatedChatWidget />
+            <CustomChatWidget />
             <Footer />
         </div>
     );

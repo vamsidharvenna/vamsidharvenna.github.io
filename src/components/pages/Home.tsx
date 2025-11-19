@@ -1,8 +1,8 @@
-import React from 'react';
-import { portfolioConfig } from '../../config/portfolio';
-import AnimatedChatWidget from '../ui/AnimatedChatWidget';
-import Icon from '../ui/Icon';
-import Navigation from '../ui/Navigation';
+import React from "react";
+import { portfolioConfig } from "../../config/portfolio";
+import CustomChatWidget from "../ui/CustomChatWidget";
+import Icon from "../ui/Icon";
+import Navigation from "../ui/Navigation";
 
 const hoverColors: Record<string, string> = {
     github: 'hover:text-slate-900',
@@ -121,7 +121,7 @@ const Home: React.FC = () =>
                     </div>
                 </div>
             </div>
-            <AnimatedChatWidget />
+            <CustomChatWidget />
         </div>
     );
 };
