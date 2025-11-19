@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { portfolioConfig } from '../../config/portfolio';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
-import Icon from '../ui/Icon';
 
-const Projects: React.FC = () =>
-{
+const Projects: React.FC = () => {
     const { projects } = portfolioConfig;
     const [ showAll, setShowAll ] = useState( false );
 
@@ -54,31 +52,6 @@ const Projects: React.FC = () =>
                                     </div>
                                 </div>
 
-                                {/* Project Links */}
-                                <div className="flex gap-3">
-                                    {project.demoUrl && (
-                                        <Button
-                                            variant="primary"
-                                            size="sm"
-                                            className="flex items-center gap-2 flex-1"
-                                            onClick={() => window.open( project.demoUrl, '_blank' )}
-                                        >
-                                            <Icon name="external-link" size={16} />
-                                            Live Demo
-                                        </Button>
-                                    )}
-                                    {project.githubUrl && (
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
-                                            className="flex items-center gap-2 flex-1"
-                                            onClick={() => window.open( project.githubUrl, '_blank' )}
-                                        >
-                                            <Icon name="github" size={16} />
-                                            Code
-                                        </Button>
-                                    )}
-                                </div>
                             </div>
 
                             {/* Featured Badge */}

@@ -81,7 +81,7 @@ export const portfolioConfig: PortfolioConfig = {
   socialLinks: [
     {
       platform: "GitHub",
-      url: "https://github.com/vennavamsidharreddy-cell",
+      url: "https://github.com/vamsidharvenna",
       icon: "github",
     },
     {

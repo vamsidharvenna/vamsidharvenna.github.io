@@ -2,11 +2,9 @@ import React from "react";
 import { portfolioConfig } from "../../config/portfolio";
 import CustomChatWidget from "../ui/CustomChatWidget";
 import Footer from "../ui/Footer";
-import Icon from "../ui/Icon";
 import Navigation from "../ui/Navigation";
 
-const Projects: React.FC = () =>
-{
+const Projects: React.FC = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <Navigation />
@@ -29,9 +27,10 @@ const Projects: React.FC = () =>
                             {portfolioConfig.projects.map((project) => (
                                 <div
                                     key={project.id}
-                                    className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300"
+                                    className="bg-sky-50/90 border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
                                 >
                                     <div className="p-6">
+                                        <div className="h-1 w-12 rounded-full bg-teal-400 mb-4" />
                                         <div className="flex items-start justify-between mb-4">
                                             <h2 className="text-xl font-bold text-gray-900">{project.title}</h2>
                                             {project.featured && (
@@ -48,37 +47,13 @@ const Projects: React.FC = () =>
                                             {project.technologies.map((tech) => (
                                                 <span
                                                     key={tech}
-                                                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                                                    className="px-3 py-1 bg-white/90 border border-teal-100 text-teal-800 text-xs font-medium rounded-full shadow-sm"
                                                 >
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
 
-                                        <div className="flex space-x-4 text-sm">
-                                            {project.demoUrl && (
-                                                <a
-                                                    href={project.demoUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center text-teal-600 hover:text-teal-700 font-medium"
-                                                >
-                                                    <Icon name="external-link" className="w-4 h-4 mr-1" />
-                                                    Live Demo
-                                                </a>
-                                            )}
-                                            {project.githubUrl && (
-                                                <a
-                                                    href={project.githubUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center text-gray-600 hover:text-gray-700 font-medium"
-                                                >
-                                                    <Icon name="github" className="w-4 h-4 mr-1" />
-                                                    View Code
-                                                </a>
-                                            )}
-                                        </div>
                                     </div>
                                 </div>
                             ))}

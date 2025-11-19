@@ -561,6 +561,45 @@
   margin-top: 10px;
 }
 
+@media (min-width: 768px) {
+  .cw-bubble--welcome {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 12px 18px;
+  }
+}
+
+.cw-chip-icon {
+  font-size: 14px;
+}
+
+.cw-chip-label {
+  white-space: nowrap;
+}
+
+.cw-chips--secondary {
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .cw-chip--primary {
+    font-size: 14px;
+    padding: 8px 22px;
+  }
+}
+
+.cw-chip-icon {
+  font-size: 14px;
+}
+
+.cw-chip-label {
+  white-space: nowrap;
+}
+
+.cw-chips--secondary {
+  margin-top: 10px;
+}
+
 .cw-chip--secondary {
   opacity: 0.9;
   border-color: rgba(34, 211, 238, 0.22);

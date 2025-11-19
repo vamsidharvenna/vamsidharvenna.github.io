@@ -138,8 +138,9 @@ const Certifications: React.FC = () => {
                     {certs.map((cert) => (
                       <div
                         key={cert.id}
-                        className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                        className="bg-sky-50/90 border border-slate-100 rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow"
                       >
+                        <div className="h-1 w-12 rounded-full bg-teal-400 mb-4" />
                         <div className="flex items-start justify-between mb-3">
                           <h3 className="font-bold text-lg text-gray-900 leading-tight">
                             {cert.name}
@@ -162,9 +163,13 @@ const Certifications: React.FC = () => {
                         >
                           View Credential
                         </a>
-                        <div className="text-sm text-gray-500 bg-gray-50 p-2 rounded">
-                          <span className="font-medium">Credential ID:</span>{" "}
-                          {cert.credentialId}
+                        <div className="mt-2 text-sm bg-white/80 border border-teal-100 px-3 py-2 rounded-md flex items-center justify-between">
+                          <span className="font-semibold text-teal-700">
+                            Credential ID
+                          </span>
+                          <span className="font-mono tracking-wide text-gray-800">
+                            {cert.credentialId}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -279,4 +284,3 @@ const Certifications: React.FC = () => {
 };
 
 export default Certifications;
-
