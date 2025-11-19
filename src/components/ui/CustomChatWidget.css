@@ -567,6 +567,15 @@
     line-height: 1.6;
     padding: 12px 18px;
   }
+
+  .cw-messages {
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+
+  .cw-message:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .cw-chip-icon {
@@ -582,9 +591,14 @@
 }
 
 @media (min-width: 768px) {
-  .cw-chip--primary {
+  .cw-chip {
     font-size: 14px;
     padding: 8px 22px;
+  }
+
+  .cw-chip--primary {
+    font-size: 15px;
+    padding: 10px 26px;
   }
 }
 

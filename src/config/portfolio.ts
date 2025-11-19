@@ -321,7 +321,7 @@ export const portfolioConfig: PortfolioConfig = {
       responsibilities: [
         "Designed and optimized Verizon Assistant in Dialogflow CX using Conversational Agents, Chat with data stores, and Playbooks with prompt engineering, conditional logic, and Python scripting, creating adaptive virtual agents aligned with Agentic AI principles that improved contextual accuracy, increased self-service resolution by 20%, and reduced fallback rates by 25%.",
         "Implemented omnichannel conversational flows in Dialogflow CX, building both chat agents and voice agents with Speech-toText, Text-to-Speech, and SSML to ensure natural, consistent user experiences across web, mobile, and IVR channels.",
-        "Trained NLP models in Dialogflow CX—including intents, entities, and multi-turn conversational flows with advanced context handling—leveraging Vertex AI features to enhance training and improve overall model performance.",
+        "Trained NLP models in Dialogflow CX,including intents, entities, and multi-turn conversational flows with advanced context handling,leveraging Vertex AI features to enhance training and improve overall model performance.",
         "Integrated Dialogflow CX and Playbooks with back-end APIs and external systems, using webhooks, Playbook tools, Google Cloud Functions, Firestore, and Cloud SQL for fulfillment to enable real-time data retrieval and automate customer workflows.",
         "Partnered with cross-functional teams to define business requirements and deliver scalable Google CCAI solutions, while continuously refining NLU models and conversational flows using analytics, logs, and customer feedback to drive higher accuracy, responsiveness, and user experience.",
       ],
