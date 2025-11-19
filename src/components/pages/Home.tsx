@@ -52,7 +52,7 @@ const Home: React.FC = () =>
                         <div className="pt-2">
                             <p className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Resume</p>
                             <a
-                                href="https://storage.googleapis.com/vamsidharvennabot/resume/vamsi%20conversational%20ai%20developer%20resume%20ip.pdf"
+                                href="https://storage.googleapis.com/vamsidharvennabot/resume/Vamsidhar%20Venna%20Conversational%20AI%20Developer%20Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full flex items-center justify-between rounded-xl border border-cyan-200 bg-gradient-to-r from-white to-cyan-50 px-4 py-3 text-sm font-semibold text-cyan-700 hover:from-cyan-50 hover:to-white transition-all duration-200 shadow-sm hover:shadow-md"
