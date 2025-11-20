@@ -329,6 +329,18 @@ const CustomChatWidget: React.FC<CustomChatWidgetProps> = ({
   };
 
   const handleChipClick = (label: string): void => {
+    const key = label.trim().toLowerCase();
+
+    // Special-case: open resume link directly instead of sending text to CX
+    if (key.includes("download resume")) {
+      window.open(
+        "https://storage.googleapis.com/vamsidharvennabot/resume/Vamsidhar%20Venna%20Conversational%20AI%20Developer%20Resume.pdf",
+        "_blank",
+        "noopener,noreferrer",
+      );
+      return;
+    }
+
     void sendTextToBot(label);
   };
 
