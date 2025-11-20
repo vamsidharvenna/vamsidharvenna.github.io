@@ -211,19 +211,21 @@ export const portfolioConfig: PortfolioConfig = {
       id: "kore-ai-banking-bot",
       title: "Personal Portfolio Assistant",
       description:
-        "AI-powered portfolio chatbot built using Dialogflow CX, Playbooks, Generative AI, and Cloud Run",
+        "AI-powered portfolio chatbot built using Dialogflow CX, Generators, Tools, Prompting, Data Stores, Tawk.to and Cloud Run",
       longDescription:
-        "A conversational AI portfolio assistant built with Dialogflow CX and Playbooks that allows users to explore my projects, certifications, skills, experience, and resume through dynamic, natural interactions. CX Generators powered by Gemini retrieve contextual answers from custom Google Data Stores, enabling fully adaptive and personalized responses. Backend services run on Cloud Run (Node.js), handling email/SMS alerts through Twilio, and enabling real-time human chat handoff via Telegram, coordinated through Firestore bridge documents. Features include multi-page orchestration, multi-intent routing, live chat mode, user detail collection, and robust fallback logic for a seamless user experience.",
+        "A conversational AI portfolio assistant built with Dialogflow CX that allows users to explore my projects, certifications, skills, experience, and resume through dynamic, natural interactions. Gemini-powered Generators retrieve contextual answers from custom Google Data Stores and GCS Buckets, enabling fully adaptive and personalized responses across the site. Backend services run on Cloud Run (Node.js) through a custom REST integration, coordinating DetectIntent requests, session management, content retrieval, and triggering Twilio-powered email & Sms alerts for key user actions. A custom React chat widget powers the frontend, enabling multi-page orchestration, smooth live chat mode through Tawk.to, user detail collection, and robust fallback handling for an uninterrupted experience.",
       image: "/api/placeholder/600/400",
       technologies: [
         "Dialogflow CX",
-        "Playbooks",
-        "Generative AI (Gemini)",
+        "Generators (Gemini)",
+        "Tools",
+        "Prompting",
+        "AI Applications(Data stores)",
         "Cloud Run",
-        "Node.js",
-        "Firestore",
+        "REST API",
+        "Tawk.to",
         "Twilio",
-        "Telegram API",
+        "React + Tailwind CSS",
       ],
       demoUrl: "https://banking-bot.example.com",
       githubUrl:
